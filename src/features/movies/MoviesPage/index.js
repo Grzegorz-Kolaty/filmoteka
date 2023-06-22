@@ -1,4 +1,4 @@
-function MoviesPage() {
+export const MoviesPage = () => {
   return (
     <>
       <div>Movie1</div>

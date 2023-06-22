@@ -11,7 +11,7 @@ import {
   MoviesTileFrame,
 } from "./Movie list/Movie tile/styled";
 
-function MoviesPage() {
+export const App = () => {
   return (
     <Tile>
       <MoviesTile>
