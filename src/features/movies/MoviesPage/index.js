@@ -1,4 +1,4 @@
-import poster from "./images/poster.png";
+import poster from "../../../images/poster.png";
 import {
   Tile,
   MoviesTile,

@@ -9,7 +9,7 @@ import {
   Image,
   Description,
   MoviesTileFrame,
-} from "./Movie list/Movie tile/styled";
+} from "./features/movies/MoviesPage/styled";
 
 export const App = () => {
   return (
@@ -86,6 +86,6 @@ export const App = () => {
       </MoviesTile>
     </Tile>
   );
-}
+};
 
 export default App;
