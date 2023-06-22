@@ -88,4 +88,4 @@ export const App = () => {
   );
 }
 
-export default MoviesPage;
+export default App;
