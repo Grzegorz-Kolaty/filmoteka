@@ -1,5 +1,4 @@
 function MoviesPage() {
-
   return (
     <>
       <div>Movie1</div>
@@ -10,4 +9,4 @@ function MoviesPage() {
       <div>Movie6</div>
     </>
   );
-};
+}
