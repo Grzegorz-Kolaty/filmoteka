@@ -1,12 +1,91 @@
-export const MoviesPage = () => {
+import poster from "./images/poster.png";
+import {
+  Tile,
+  MoviesTile,
+  Title,
+  Subtitle,
+  Tags,
+  Tag,
+  Image,
+  Description,
+  MoviesTileFrame,
+} from "./styled";
+
+export const App = () => {
   return (
-    <>
-      <div>Movie1</div>
-      <div>Movie2</div>
-      <div>Movie3</div>
-      <div>Movie4</div>
-      <div>Movie5</div>
-      <div>Movie6</div>
-    </>
+    <Tile>
+      <MoviesTile>
+        <MoviesTileFrame>
+          <Image src={poster} alt="" />
+          <Description>
+            <Title>Mulan</Title>
+            <Subtitle>2020</Subtitle>
+            <Tags>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+            </Tags>
+          </Description>
+        </MoviesTileFrame>
+      </MoviesTile>
+      <MoviesTile>
+        <MoviesTileFrame>
+          <Image src={poster} alt="" />
+          <Description>
+            <Title>Mulan</Title>
+            <Subtitle>2020</Subtitle>
+            <Tags>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+            </Tags>
+          </Description>
+        </MoviesTileFrame>
+      </MoviesTile>
+      <MoviesTile>
+        <MoviesTileFrame>
+          <Image src={poster} alt="" />
+          <Description>
+            <Title>Mulan</Title>
+            <Subtitle>2020</Subtitle>
+            <Tags>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+            </Tags>
+          </Description>
+        </MoviesTileFrame>
+      </MoviesTile>
+      <MoviesTile>
+        <MoviesTileFrame>
+          <Image src={poster} alt="" />
+          <Description>
+            <Title>Mulan</Title>
+            <Subtitle>2020</Subtitle>
+            <Tags>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+            </Tags>
+          </Description>
+        </MoviesTileFrame>
+      </MoviesTile>
+      <MoviesTile>
+        <MoviesTileFrame>
+          <Image src={poster} alt="" />
+          <Description>
+            <Title>Mulan</Title>
+            <Subtitle>2020</Subtitle>
+            <Tags>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+            </Tags>
+          </Description>
+        </MoviesTileFrame>
+      </MoviesTile>
+    </Tile>
   );
-}
+};
+
+export default App;
