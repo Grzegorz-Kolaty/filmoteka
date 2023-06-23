@@ -10,10 +10,13 @@ import {
   Description,
   MoviesTileFrame,
 } from "./Movie list/Movie tile/styled";
+import Header from "./common/Header";
 
 export const App = () => {
   return (
     <Tile>
+      <Header />
+      {" "}
       <MoviesTile>
         <MoviesTileFrame>
           <Image src={poster} alt="" />
@@ -86,6 +89,6 @@ export const App = () => {
       </MoviesTile>
     </Tile>
   );
-}
+};
 
 export default App;
