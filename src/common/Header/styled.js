@@ -3,9 +3,11 @@ import styled from "styled-components";
 export const Wrapper = styled.header`
   background-color: ${({ theme }) => theme.color.woodsmoke};
   color: ${({ theme }) => theme.color.white};
-  position:sticky;
+  position: sticky;
   top: 0;
-  width: 380px;
+  width: 100%;
+  height: 94px;
+  z-index: 10;
 
   @media (orientation: landscape) and (max-width: ${({ theme }) =>
       theme.breakpoints.large}) {
@@ -52,16 +54,21 @@ export const Logo = styled.div`
 export const Icon = styled.img`
   height: 40px;
   width: 40px;
+  margin-right: 16px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin-right: 8px;
+    width: 17px;
+    height: 17px;
+  }
 `;
 
 export const Title = styled.h1`
   color: white;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 40px;
-  letter-spacing: -1.5px;
-  display: flex;
-  margin: 0px 0px 0px 12px;
+  white-space: nowrap;
+  width: 60px;
+  height: 40px;
+  margin-top: 32px;
+  margin-left: 1px;
 `;
 
 export const Navigation = styled.nav`
@@ -73,13 +80,22 @@ export const List = styled.ul`
   display: flex;
   list-style: none;
   padding-left: 0px;
-  margin: 0;
+  margin-left:40px;
 `;
 
 export const Item = styled.li`
-  margin-right: 16px;
+  width: 102px;
+  height: 48px;
+  margin-top: 5px;
+  margin-left: 216px;
+
   cursor: pointer;
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    margin-right: 12px;
+    margin-left: 593px;
+    margin-top: 23px;
+    radius: 24px;
+    border: 1px;
+    padding: 8px 24px 8px 24px;
+    gap: 10px;
   }
 `;
