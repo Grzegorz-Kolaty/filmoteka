@@ -1,12 +1,33 @@
+import Section from "../../../components/Section";
+import Header from "../../../components/Header";
+import { Container } from "../../../components/Container";
+import { MoviesList } from "./MoviesList";
+import { NotFound, Loading } from "./styled";
+
 export const MoviesPage = () => {
+  const loading = true;
+  const error = false;
+
   return (
-    <>
-      <div>Movie1</div>
-      <div>Movie2</div>
-      <div>Movie3</div>
-      <div>Movie4</div>
-      <div>Movie5</div>
-      <div>Movie6</div>
-    </>
+    <Container>
+      {loading ? (
+        <>
+          <Header title="Searching for results" />
+          <Section body={<Loading />} />
+        </>
+      ) : error ? (
+        <>
+          <Header title="Sorry, there are no results for Mulan" />
+          <Section body={<NotFound />} />
+        </>
+      ) : (
+        <>
+          <Header title="Search result for Mulan(6)" />
+          <Section body={<MoviesList />} />
+        </>
+      )}
+    </Container>
   );
-}
+};
+
+export default MoviesPage;
