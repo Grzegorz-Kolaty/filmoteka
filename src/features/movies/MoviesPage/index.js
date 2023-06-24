@@ -1,5 +1,3 @@
-// import { useSelector } from "react-redux";
-// import { selectMovies } from "../moviesSlice";
 import Section from "../../../components/Section";
 import Header from "../../../components/Header";
 import { Container } from "../../../components/Container";
@@ -7,15 +5,16 @@ import { MoviesList } from "./MoviesList";
 import { NotFound, Loading } from "./styled";
 
 export const MoviesPage = () => {
-  //const movies = useSelector(selectMovies);
-  //const movies = 0;
-  const loading = false;
-  const error = true;
+  const loading = true;
+  const error = false;
 
   return (
     <Container>
       {loading ? (
-        <Section body={<Loading />} />
+        <>
+          <Header title="Searching for results" />
+          <Section body={<Loading />} />
+        </>
       ) : error ? (
         <>
           <Header title="Sorry, there are no results for Mulan" />
@@ -23,7 +22,7 @@ export const MoviesPage = () => {
         </>
       ) : (
         <>
-          <Header title="Search result for Mulan" />
+          <Header title="Search result for Mulan(6)" />
           <Section body={<MoviesList />} />
         </>
       )}
