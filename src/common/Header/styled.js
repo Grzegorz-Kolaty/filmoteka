@@ -1,16 +1,15 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.header`
-  background-color: ${({ theme }) => theme.color.woodsmoke};
-  color: ${({ theme }) => theme.color.white};
+  background-color: woodsmoke;
+  color: white;
   position: sticky;
   top: 0;
   width: 100%;
   height: 94px;
   z-index: 10;
 
-  @media (orientation: landscape) and (max-width: ${({ theme }) =>
-      theme.breakpoints.large}) {
+  @media (orientation: landscape) and (max-width: large) {
     position: relative;
   }
 `;
