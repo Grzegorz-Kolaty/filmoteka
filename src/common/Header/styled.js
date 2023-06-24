@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.header`
   background-color: ${({ theme }) => theme.color.woodsmoke};
   color: ${({ theme }) => theme.color.white};
-  position:initial;
+  position:sticky;
   top: 0;
   width: 380px;
 
