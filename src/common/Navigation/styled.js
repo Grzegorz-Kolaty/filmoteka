@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.header`
-  background-color: woodsmoke;
+  background-color: black;
   color: white;
   position: sticky;
   top: 0;
@@ -45,10 +45,6 @@ export const NavContainer = styled.div`
   }
 `;
 
-export const Logo = styled.div`
-  display: flex;
-  align-items: center;
-`;
 
 export const Icon = styled.img`
   height: 40px;
@@ -70,7 +66,7 @@ export const Title = styled.h1`
   margin-left: 1px;
 `;
 
-export const Navigation = styled.nav`
+export const Nav = styled.nav`
   display: flex;
   align-items: center;
 `;

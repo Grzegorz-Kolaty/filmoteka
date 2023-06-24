@@ -1,8 +1,12 @@
+import Navigation from "./common/Navigation/index";
 import { MoviesPage } from "./features/movies/MoviesPage/index";
 
 const App = () => {
   return (
-    <MoviesPage></MoviesPage>
+    <>
+      <Navigation />
+      <MoviesPage></MoviesPage>
+    </>
   );
 };
 
