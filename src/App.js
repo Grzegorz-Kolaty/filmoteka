@@ -1,6 +1,6 @@
-import MoviesPage from "./features/movies/MoviesPage";
+import { MoviesPage } from "./features/movies/MoviesPage/index";
 
-export const App = () => {
+const App = () => {
   return (
     <MoviesPage></MoviesPage>
   );

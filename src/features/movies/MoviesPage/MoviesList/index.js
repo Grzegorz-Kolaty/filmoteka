@@ -1,16 +1,89 @@
-import { Item, List, Wrapper } from "./styled";
+import poster from "./../../../../components/images/poster.png"
+import {
+  Tile,
+  MoviesTile,
+  Title,
+  Subtitle,
+  Tags,
+  Tag,
+  Image,
+  Description,
+  MoviesTileFrame,
+} from "./styled";
 
 export const MoviesList = () => {
   return (
-    <Wrapper>
-      <List>
-        <Item>Film Pierwszy</Item>
-        <Item>Film Mulan</Item>
-        <Item>Film Whatever</Item>
-        <Item> bla bla</Item>
-        <Item>asdfadsf</Item>
-        <Item>asdsad</Item>
-      </List>
-    </Wrapper>
-  )
+    <Tile>
+      <MoviesTile>
+        <MoviesTileFrame>
+          <Image src={poster} alt="" />
+          <Description>
+            <Title>Mulan</Title>
+            <Subtitle>2020</Subtitle>
+            <Tags>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+            </Tags>
+          </Description>
+        </MoviesTileFrame>
+      </MoviesTile>
+      <MoviesTile>
+        <MoviesTileFrame>
+          <Image src={poster} alt="" />
+          <Description>
+            <Title>Mulan</Title>
+            <Subtitle>2020</Subtitle>
+            <Tags>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+            </Tags>
+          </Description>
+        </MoviesTileFrame>
+      </MoviesTile>
+      <MoviesTile>
+        <MoviesTileFrame>
+          <Image src={poster} alt="" />
+          <Description>
+            <Title>Mulan</Title>
+            <Subtitle>2020</Subtitle>
+            <Tags>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+            </Tags>
+          </Description>
+        </MoviesTileFrame>
+      </MoviesTile>
+      <MoviesTile>
+        <MoviesTileFrame>
+          <Image src={poster} alt="" />
+          <Description>
+            <Title>Mulan</Title>
+            <Subtitle>2020</Subtitle>
+            <Tags>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+            </Tags>
+          </Description>
+        </MoviesTileFrame>
+      </MoviesTile>
+      <MoviesTile>
+        <MoviesTileFrame>
+          <Image src={poster} alt="" />
+          <Description>
+            <Title>Mulan</Title>
+            <Subtitle>2020</Subtitle>
+            <Tags>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+              <Tag>Action</Tag>
+            </Tags>
+          </Description>
+        </MoviesTileFrame>
+      </MoviesTile>
+    </Tile>
+  );
 };
