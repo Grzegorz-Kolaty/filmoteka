@@ -6,8 +6,8 @@ export const NotFound = styled.img`
     background-image: url("${notFound}");
     background-repeat: no-repeat;
     background-position: center;
-    height: 600px;
-    width: 600px;
+    height: 400px;
+    width: 400px;
     background-color: transparent;
     outline: none;
     border: none;
@@ -17,8 +17,8 @@ export const Loading = styled.img`
     background-image: url("${Loader}");
     background-repeat: no-repeat;
     background-position: center;
-    height: 600px;
-    width: 600px;
+    height: 400px;
+    width: 400px;
     background-color: transparent;
     outline: none;
     border: none;
