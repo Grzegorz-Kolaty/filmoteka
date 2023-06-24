@@ -6,7 +6,7 @@ import Lee from "./images/Lee.png";
 import JSL from "./images/JSL.png";
 import Scott from "./images/Scott.png";
 
-function PeoplePage() {
+function ActorsPage() {
   return (
     <Row>
       <PersonTile>
@@ -49,4 +49,4 @@ function PeoplePage() {
   );
 }
 
-export default PeoplePage;
+export default ActorsPage;
