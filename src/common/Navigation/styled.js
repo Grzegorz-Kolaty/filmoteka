@@ -1,32 +1,38 @@
 import styled from "styled-components";
 
-export const Nav = styled.nav`
-  background-color: ${({ theme }) => theme.color.black};
-  weight:100%
-  height: 94px;
+export const Nav = styled.header`
+  background: ${({ theme }) => theme.color.black};
+`;
+
+export const NavContainer = styled.div`
+  margin: auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  flex-wrap: wrap;
+  max-width: 1330px;
+  padding: 0 16px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    width: 100%;
-  }
-  @media(max-width: ${({theme})=>theme.breakpoints.small}) {
-
-    width:100%;
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallScreen}px) {
+    justify-content: space-between;
   }
 
-
- 
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    padding: 8px;
+  }
 `;
 
 export const Logo = styled.div`
-  display: flex;
+  display: inherit;
   align-items: center;
-  width: 220px;
-  height: 48px;
-  margin-left: 20px;
+  margin-right: 75px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallScreen}px) {
+    margin-right: 24px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    margin-right: 8px;
+  }
 `;
 
 export const Icon = styled.img`
@@ -34,20 +40,33 @@ export const Icon = styled.img`
   height: 40px;
   margin-top: 4px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    margin-right: 8px;
+  margin: 0 12px 0 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
     width: 17px;
     height: 17px;
   }
 `;
 
 export const Title = styled.h1`
-  color: white;
-  white-space: nowrap;
-  height: 40px;
-  margin-top: 30px;
-  margin-left: 20px;
-  `;
+  margin: 0;
+  font-weight: 500;
+  line-height: 40px;
+  font-size: 24px;
+  text-transform: capitalize;
+  letter-spacing: -0.5px;
+  color: ${({ theme }) => theme.color.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallScreen}px) {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+`;
 
 export const List = styled.ul`
   color: white;
@@ -58,9 +77,6 @@ export const List = styled.ul`
   height: 50px;
   margin-right: 20px;
   padding: 0;
-
-
- 
 `;
 
 export const Item = styled.li`
@@ -73,13 +89,5 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   gap: 10px;
-  cursor:pointer;
-  
-
-
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    flex-direction: column;
-    margin-top: 50px;
-  }
+  cursor: pointer;
 `;
