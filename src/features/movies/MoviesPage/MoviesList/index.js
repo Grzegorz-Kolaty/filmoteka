@@ -1,4 +1,5 @@
-import poster from "./../../../../components/images/poster.png"
+import poster from "./../../../../components/images/poster.png";
+import Header from "../../../../components/Header";
 import {
   Tile,
   MoviesTile,
@@ -14,6 +15,7 @@ import {
 export const MoviesList = () => {
   return (
     <Tile>
+      <Header>Popular movies</Header>
       <MoviesTile>
         <MoviesTileFrame>
           <Image src={poster} alt="" />
