@@ -1,55 +1,39 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.header`
-  background-color: black;
-  color: white;
-  position: sticky;
-  top: 0;
-  width: 100%;
+export const Nav = styled.nav`
+  background-color: ${({ theme }) => theme.color.black};
+  weight:100%
   height: 94px;
-  z-index: 10;
-
-  @media (orientation: landscape) and (max-width: large) {
-    position: relative;
-  }
-`;
-
-export const Content = styled.div`
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 23px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    padding: 32px 16px 16px 16px;
+    width: 100%;
+  }
+  @media(max-width: ${({theme})=>theme.breakpoints.small}) {
+
+    width:100%;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    flex-direction: column;
-  }
+
+ 
 `;
 
-export const NavContainer = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 80px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    grid-gap: 0;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    justify-content: space-between;
-    margin-bottom: 32px;
-  }
+export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  width: 220px;
+  height: 48px;
+  margin-left: 20px;
 `;
-
 
 export const Icon = styled.img`
-  height: 40px;
   width: 40px;
-  margin-right: 16px;
+  height: 40px;
+  margin-top: 4px;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
     margin-right: 8px;
     width: 17px;
@@ -60,37 +44,42 @@ export const Icon = styled.img`
 export const Title = styled.h1`
   color: white;
   white-space: nowrap;
-  width: 60px;
   height: 40px;
-  margin-top: 32px;
-  margin-left: 1px;
-`;
-
-export const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-`;
+  margin-top: 30px;
+  margin-left: 20px;
+  `;
 
 export const List = styled.ul`
+  color: white;
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
-  padding-left: 0px;
-  margin-left:40px;
+  align-items: center;
+  height: 50px;
+  margin-right: 20px;
+  padding: 0;
+
+
+ 
 `;
 
 export const Item = styled.li`
   width: 102px;
   height: 48px;
-  margin-top: 5px;
-  margin-left: 216px;
+  margin-left: 10px;
+  border: 1px solid white;
+  border-radius: 24px;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor:pointer;
+  
 
-  cursor: pointer;
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
-    margin-left: 593px;
-    margin-top: 23px;
-    radius: 24px;
-    border: 1px;
-    padding: 8px 24px 8px 24px;
-    gap: 10px;
+
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+    flex-direction: column;
+    margin-top: 50px;
   }
 `;

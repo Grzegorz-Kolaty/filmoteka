@@ -5,22 +5,26 @@ import {
   Nav,
   List,
   Item,
-} from "./styled";
-import camera from "./../../components/images/camera.svg"
+  Logo,
+} from "./styled.js";
+import camera from "./../../components/images/camera.svg";
 import Search from "../../features/movies/MoviesPage/Search";
 
 const Navigation = () => {
   return (
     <>
       <Nav>
-        <Icon src={camera} />
-        <Title>Movies Browser</Title>
+        <Logo>
+          <Icon src={camera} />
+          <Title>Movies Browser</Title>
+        </Logo>
         <List>
           <Item>Movies</Item>
           <Item>People</Item>
-        </List>
+        </List> 
+        <Search />
       </Nav>
-      <Search />
+     
     </>
   );
 };
