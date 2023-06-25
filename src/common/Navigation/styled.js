@@ -2,23 +2,19 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   background-color: ${({ theme }) => theme.color.black};
-  weight:100%
+  width: 100%;
   height: 94px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
-    width: 100%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding-bottom: 10px;
   }
-  @media(max-width: ${({theme})=>theme.breakpoints.small}) {
-
-    width:100%;
-  }
-
-
- 
 `;
 
 export const Logo = styled.div`
@@ -27,6 +23,10 @@ export const Logo = styled.div`
   width: 220px;
   height: 48px;
   margin-left: 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const Icon = styled.img`
@@ -47,7 +47,12 @@ export const Title = styled.h1`
   height: 40px;
   margin-top: 30px;
   margin-left: 20px;
-  `;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+`;
 
 export const List = styled.ul`
   color: white;
@@ -59,8 +64,11 @@ export const List = styled.ul`
   margin-right: 20px;
   padding: 0;
 
-
- 
+  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 0;
+  }
 `;
 
 export const Item = styled.li`
@@ -73,13 +81,10 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
   gap: 10px;
-  cursor:pointer;
-  
-
-
+  cursor: pointer;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 10px;
   }
 `;
