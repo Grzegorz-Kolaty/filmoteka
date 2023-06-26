@@ -6,13 +6,13 @@ export const theme = {
     black: "#000000",
     woodsmoke: "#18181B",
     grey: "#E4E6F0",
+    darkGrey: "#7E839A",
   },
-breakpoints: {
-    small: "480px",
-    medium: "767px",
-    large: "1024",
-    extraLarge: "1199px",
-},
 
+  breakpoint: {
+    mediumScreen: 1280,
+    smallScreen: 991,
+    mobileMax: 767,
+    mobileMin: 320,
+  },
 };
-

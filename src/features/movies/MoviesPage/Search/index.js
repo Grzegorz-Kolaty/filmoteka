@@ -1,11 +1,12 @@
 import React from "react";
-import Input from "./styled";
-;const Search = () => {
+
+import { SearchWrapper, Input, SearchIcon } from "./styled";
+const Search = () => {
   return (
-    <>
-     
+    <SearchWrapper>
+      <SearchIcon />
       <Input placeholder="Search for movies..." type="text" />
-    </>
+    </SearchWrapper>
   );
 };
 export default Search;
