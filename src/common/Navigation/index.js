@@ -1,13 +1,6 @@
 import React from "react";
 import {
-  Icon,
-  Title,
-  Nav,
-  List,
-  Item,
-  Logo,
-  NavContainer,
-} from "./styled.js";
+  Icon, Title, Nav, List, Item, Logo, NavContainer} from "./styled.js";
 import camera from "./../../components/images/camera.svg";
 import Search from "../../features/movies/MoviesPage/Search";
 
