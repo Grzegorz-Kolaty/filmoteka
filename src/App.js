@@ -1,13 +1,11 @@
 import Navigation from "./common/Navigation/index";
-import { MoviesPage } from "./features/movies/MoviesPage/index";
+import { MoviePage } from "./features/movies/MoviePage/index";
 
-const App = () => {
+export const App = () => {
   return (
     <>
       <Navigation />
-      <MoviesPage></MoviesPage>
+      <MoviePage />
     </>
   );
 };
-
-export default App;

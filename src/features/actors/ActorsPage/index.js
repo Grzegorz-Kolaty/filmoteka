@@ -1,4 +1,4 @@
-import { Row, PersonTile, PersonTitle, Picture, Tile } from "./styled";
+import { Row, PersonTile, Picture, Tile, Title } from "./styled";
 import Liu from "./images/Liu.png";
 import Donnie from "./images/Donnie.png";
 import Jason from "./images/Jason.png";
@@ -6,47 +6,45 @@ import Lee from "./images/Lee.png";
 import JSL from "./images/JSL.png";
 import Scott from "./images/Scott.png";
 
-function ActorsPage() {
+export const ActorsPage = () => {
   return (
     <Row>
       <PersonTile>
         <Tile>
           <Picture src={Liu} />
-          <PersonTitle>Liu</PersonTitle>
+          <Title>Liu</Title>
         </Tile>
       </PersonTile>
       <PersonTile>
         <Tile>
           <Picture src={Donnie} />
-          <PersonTitle>Donnie</PersonTitle>
+          <Title>Donnie</Title>
         </Tile>
       </PersonTile>
       <PersonTile>
         <Tile>
           <Picture src={Jason} />
-          <PersonTitle>Jason</PersonTitle>
+          <Title>Jason</Title>
         </Tile>
       </PersonTile>
       <PersonTile>
         <Tile>
           <Picture src={Lee} />
-          <PersonTitle>Lee</PersonTitle>
+          <Title>Lee</Title>
         </Tile>
       </PersonTile>
       <PersonTile>
         <Tile>
           <Picture src={JSL} />
-          <PersonTitle>JSL</PersonTitle>
+          <Title>JSL</Title>
         </Tile>
       </PersonTile>
       <PersonTile>
         <Tile>
           <Picture src={Scott} />
-          <PersonTitle>Scott</PersonTitle>
+          <Title>Scott</Title>
         </Tile>
       </PersonTile>
     </Row>
   );
-}
-
-export default ActorsPage;
+};
