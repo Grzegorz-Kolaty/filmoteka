@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as Search} from "../../../../components/images/searchIcon.svg";
 
 export const SearchWrapper = styled.div`
     background-color: ${({ theme }) => theme.color.white};
@@ -8,8 +9,9 @@ export const SearchWrapper = styled.div`
     align-items: center;
     max-width: 432px;
     width: 100%;
-    height:45px;
-    margin-left:200px;
+    margin-bottom:5px;
+    margin-left:180px;
+   
 
     @media(max-width: ${({ theme }) => theme.breakpoint.smallScreen}px) {
         max-width: 300px;
@@ -19,6 +21,7 @@ export const SearchWrapper = styled.div`
         font-size: 13px;
         line-height: 16px;
         margin: auto;
+        
     };
 `;
 
@@ -31,7 +34,7 @@ export const Input = styled.input`
     background-color: transparent;
     outline: 0;
     padding: 0;
-    margin-left:60px;
+  
 
     &::placeholder {
         color: ${({ theme }) => theme.color.darkGrey};
@@ -43,5 +46,18 @@ export const Input = styled.input`
 
     @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
         font-size: 13px;
+    };
+`;
+
+export const SearchIcon = styled(Search)`
+    margin: 12px;
+    cursor:pointer;
+
+    @media(max-width: ${({ theme }) => theme.breakpoint.smallScreen}px) {
+        width: 36px;
+    };
+
+    @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+        width: 16px;
     };
 `;
