@@ -1,5 +1,5 @@
-import { Row, PersonTile, PersonTitle, Picture, Tile } from "./styled";
-import Header from "../../../components/Header";
+import { Row, PersonTile, PersonTitle, Picture, Tile, Title } from "./styled";
+import { Header } from "../../../components/Header";
 import Liu from "./images/Liu.png";
 import Donnie from "./images/Donnie.png";
 import Jason from "./images/Jason.png";
