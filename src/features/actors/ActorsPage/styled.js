@@ -1,16 +1,16 @@
+import styled from "styled-components";
+
 export const Row = styled.article`
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0px;
   gap: 24px;
-  position: absolute;
   width: 1368px;
   height: 339px;
   left: 276px;
   top: 217px;
   @media (max-width: 767px) {
-    position: absolute;
     width: 288px;
     height: 767px;
     left: 16px;
@@ -34,8 +34,6 @@ export const Tile = styled.article`
   align-items: center;
   padding: 16px;
   gap: 12px;
-
-  position: absolute;
   width: 208px;
   height: 339px;
   left: 0px;
