@@ -1,4 +1,5 @@
-import { Row, PersonTile, Picture, Tile, Title } from "./styled";
+import { Row, PersonTile, PersonTitle, Picture, Tile } from "./styled";
+import Header from "../../../components/Header";
 import Liu from "./images/Liu.png";
 import Donnie from "./images/Donnie.png";
 import Jason from "./images/Jason.png";
@@ -9,6 +10,7 @@ import Scott from "./images/Scott.png";
 export const ActorsPage = () => {
   return (
     <Row>
+      <Header>Popular people</Header>
       <PersonTile>
         <Tile>
           <Picture src={Liu} />

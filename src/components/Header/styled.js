@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Headline = styled.h1`
-    margin-top: 30px;
-    font-size: x-large;
+  top: 150px;
+  width: auto;
+  left: 276px;
+  height: 43px;
+  position: absolute;
 `;
