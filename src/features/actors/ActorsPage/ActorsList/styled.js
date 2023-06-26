@@ -6,16 +6,6 @@ export const Row = styled.article`
   align-items: center;
   padding: 0px;
   gap: 24px;
-  width: 1368px;
-  height: 339px;
-  left: 276px;
-  top: 217px;
-  @media (max-width: 767px) {
-    width: 288px;
-    height: 767px;
-    left: 16px;
-    top: 202px;
-  }
 `;
 
 export const PersonTile = styled.article`
