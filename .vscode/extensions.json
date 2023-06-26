@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "bysabi.prettier-vscode-standard",
+        "christian-kohler.npm-intellisense",
+        "remimarsal.prettier-now",
+        "styled-components.vscode-styled-components",
+        "waderyan.nodejs-extension-pack"
+    ]
+}
