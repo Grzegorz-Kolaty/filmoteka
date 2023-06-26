@@ -1,5 +1,5 @@
-import Section from "../../../components/Section";
-import Header from "../../../components/Header";
+import { Section } from "../../../components/Section";
+import { Header } from "../../../components/Header";
 import { Container } from "../../../components/Container";
 import { MoviesList } from "./MoviesList";
 import { NotFound, Loading } from "./styled";
