@@ -13,6 +13,7 @@ export const Title = styled.h2`
   min-width: 150px;
   align-items: center;
   background-color: transparent;
+  font-size: 36px;
 
   @media (max-width: 767px) {
     grid-template-columns: auto;

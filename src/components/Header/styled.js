@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const Headline = styled.h1`
-  top: 150px;
-  width: auto;
-  left: 276px;
-  height: 43px;
-  position: absolute;
+  width: 503px;
+  height: 77px;
+  font-size: 64px;
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 120%;
+  gap: 24px;
 `;
