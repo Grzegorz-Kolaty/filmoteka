@@ -1,5 +1,5 @@
-import { PersonTile, Title, Picture, Tile } from "./styled";
-import Liu from "../images/Liu.png"
+import { Row, PersonTile, Title, Picture, Tile } from "./styled";
+import Liu from "../images/Liu.png";
 import Donnie from "../images/Donnie.png";
 import Jason from "../images/Jason.png";
 import Lee from "../images/Lee.png";
@@ -8,7 +8,7 @@ import Scott from "../images/Scott.png";
 
 export const ActorsList = () => {
   return (
-    <>
+    <Row>
       <PersonTile>
         <Tile>
           <Picture src={Liu} />
@@ -45,6 +45,6 @@ export const ActorsList = () => {
           <Title>Scott</Title>
         </Tile>
       </PersonTile>
-    </>
+    </Row>
   );
 };
