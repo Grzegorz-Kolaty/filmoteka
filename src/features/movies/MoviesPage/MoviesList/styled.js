@@ -1,17 +1,13 @@
 import { styled } from "styled-components";
 
 export const Tile = styled.article`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0px;
-  gap: 24px;
-
-  position: absolute;
-  width: 1368px;
-  height: 650px;
+  width: Hug (1, 368px);
+  height: Hug (650px);
+  top: 217px;
   left: 276px;
-  top: 891px;
+  gap: 24px;
+  display: inline-flex;
+  align-items: center;
   @media (max-width: 767px) {
     display: flex;
     flex-direction: column;
@@ -19,7 +15,6 @@ export const Tile = styled.article`
     padding: 0px;
     gap: 16px;
 
-    position: absolute;
     width: 288px;
     height: 1069px;
     left: 16px;
@@ -30,10 +25,7 @@ export const Tile = styled.article`
 export const MoviesTile = styled.div`
   height: 650px;
   width: 324px;
-  left: 0px;
-  top: 0px;
   border-radius: 5px;
-  fill: solid;
   background: ${({ theme }) => theme.color.white};
   box-shadow: 0px 4px 12px rgba(186, 199, 213, 0.5);
   flex: none;
@@ -57,34 +49,15 @@ export const MoviesTile = styled.div`
   }
 `;
 
-export const MoviesTileFrame = styled.article`
-  display: flex;
-  @media (max-width: 767px) {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 16px;
-
-    width: 256px;
-    height: 169px;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-  }
-`;
-
 export const Image = styled.img`
-  position: absolute;
   width: 292px;
   height: 434px;
-  left: 16px;
-  top: 16px;
+  margin-left: 16px;
+  margin-top: 16px;
 
   background: url(Mulan.jpg);
   border-radius: 5px;
   @media (max-width: 767px) {
-    position: absolute;
     width: 114px;
     height: 169px;
     left: calc(50% - 114px / 2 - 71px);
@@ -104,6 +77,10 @@ export const Title = styled.header`
   flex-grow: 0;
   display: flex;
   align-items: center;
+  font-size: 22px;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: 130%;
   @media (max-width: 767px) {
     width: 120px;
     height: 21px;
@@ -129,6 +106,9 @@ export const Subtitle = styled.div`
   order: 1;
   align-self: flex-start;
   flex-grow: 0;
+  font-size: 16px;
+  font-family: Poppins;
+  line-height: 150%;
   @media (max-width: 767px) {
     width: 32px;
     height: 17px;
@@ -219,11 +199,9 @@ export const Description = styled.p`
   padding: 0px;
   gap: 8px;
 
-  position: absolute;
   width: 292px;
   height: 105px;
-  left: 16px;
-  top: 466px;
+  margin-left: 16px;
   @media (max-width: 767px) {
     display: flex;
     flex-direction: column;

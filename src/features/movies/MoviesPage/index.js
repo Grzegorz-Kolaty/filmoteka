@@ -1,5 +1,4 @@
 import { Section } from "../../../components/Section";
-import { Header } from "../../../components/Header";
 import { Container } from "../../../components/Container";
 import { MoviesList } from "./MoviesList";
 import { NotFound, Loading } from "./styled";
@@ -12,18 +11,18 @@ export const MoviesPage = () => {
     <Container>
       {loading ? (
         <>
-          <Header title="Searching for results" />
-          <Section body={<Loading />} />
+          <Section title="Searching for results" body={<Loading />} />
         </>
       ) : error ? (
         <>
-          <Header title="Sorry, there are no results for Mulan" />
-          <Section body={<NotFound />} />
+          <Section
+            title="Sorry, there are no results for Mulan"
+            body={<NotFound />}
+          />
         </>
       ) : (
         <>
-          <Header title="Search result for Mulan(6)" />
-          <Section body={<MoviesList />} />
+          <Section title="Search result for Mulan(6)" body={<MoviesList />} />
         </>
       )}
     </Container>
