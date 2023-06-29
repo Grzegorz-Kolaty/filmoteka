@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const Nav = styled.header`
   background: ${({ theme }) => theme.color.black};
@@ -26,10 +27,9 @@ export const Logo = styled.div`
   align-items: center;
   margin-right: 75px;
 
-
   @media (max-width: ${({ theme }) => theme.breakpoint.smallScreen}px) {
     margin-right: 24px;
-    margin-top:4px;
+    margin-top: 4px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
@@ -81,38 +81,37 @@ export const List = styled.ul`
   padding: 0;
 `;
 
-export const Item = styled.li`
-    display: inherit;
-    padding: 8px 24px;
-    margin: 23px 0 24px 5px;
-    border-radius: 24px;
-    color: ${({ theme }) => theme.color.white};
-    border: 1px solid transparent;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
-    cursor: pointer;
-    text-decoration: none;
-    margin-top:8px;
+export const NavigationLink = styled(NavLink)`
+  display: inherit;
+  padding: 8px 24px;
+  margin: 23px 0 24px 5px;
+  border-radius: 24px;
+  color: ${({ theme }) => theme.color.white};
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 8px;
 
-    &:hover, &.active {
-        border: 1px solid ${({ theme }) => theme.color.white};
-    };
+  &:hover,
+  &.active {
+    border: 1px solid ${({ theme }) => theme.color.white};
+  }
 
-    @media(max-width: ${({ theme }) => theme.breakpoint.smallScreen}px) {
-        border-radius: 30px;
-        font-size: 13px;
-        line-height: 19px;
-    };
+  @media (max-width: ${({ theme }) => theme.breakpoint.smallScreen}px) {
+    border-radius: 30px;
+    font-size: 13px;
+    line-height: 19px;
+  }
 
-    @media(max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-        border-radius: 29px;
-        font-size: 12px;
-        line-height: 18px;
-        padding: 8px;
-        margin: 10px 0;
-    };
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    border-radius: 29px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 8px;
+    margin: 10px 0;
+  }
 `;
-
-
