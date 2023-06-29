@@ -26,9 +26,8 @@ export const Tile = styled.article`
   gap: 12px;
   width: 208px;
   height: 339px;
-  left: 0px;
-  top: 0px;
   background: ${({ theme }) => theme.color.white};
+  border-radius: 5px;
 `;
 
 export const Picture = styled.img`
@@ -52,4 +51,9 @@ export const Title = styled.header`
   flex: none;
   order: 0;
   flex-grow: 0;
+  text-align: center;
+  font-size: 22px;
+  font-family: Poppins;
+  font-weight: 500;
+  line-height: 130%;
 `;

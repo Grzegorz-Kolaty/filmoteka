@@ -1,8 +1,3 @@
-import { Container } from "../../../components/Container";
-import { Section } from "../../../components/Section";
-import { MoviesList } from "../../movies/MoviesPage/MoviesList";
-import { ActorTile } from "../ActorTile";
-
 export const ActorPage = () => {
   return (
     <Container>
