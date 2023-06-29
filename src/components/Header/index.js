@@ -1,7 +1,8 @@
 import { Headline } from "./styled";
 
-export const Header = ({ title }) => {
+ export const Header = ({ title }) => {
   return (
     <Headline>{title}</Headline>
   );
 };
+

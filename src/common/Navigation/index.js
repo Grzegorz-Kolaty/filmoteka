@@ -1,6 +1,12 @@
 import React from "react";
 import {
-  Icon, Title, Nav, List, Item, Logo, NavContainer
+  Icon,
+  Title,
+  Nav,
+  List,
+  NavigationLink,
+  Logo,
+  NavContainer,
 } from "./styled.js";
 import camera from "./../../components/images/camera.svg";
 import Search from "../../features/movies/MoviesPage/Search";
@@ -15,14 +21,12 @@ const Navigation = () => {
             <Title>Movies Browser</Title>
           </Logo>
           <List>
-            <Item>Movies</Item>
-            <Item>People</Item>
+            <NavigationLink to="/movies">movies</NavigationLink>
+            <NavigationLink to="/actors">people</NavigationLink>
           </List>
           <Search />
         </NavContainer>
       </Nav>
-
-
     </>
   );
 };
