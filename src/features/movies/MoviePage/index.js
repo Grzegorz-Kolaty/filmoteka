@@ -7,18 +7,6 @@ import { ActorsPage } from "../../actors/ActorsPage";
 import { MovieTile } from "../MovieTile";
 
 export const MoviePage = () => {
-  const task = true;
-
-  if (!task) {
-    return (
-      <Container>
-        <div>Header z obrazkiem na full</div>
-        <div>Header z obrazkiem na full</div>
-        <div>Header z obrazkiem na full</div>
-      </Container>
-    );
-  };
-
   return (
     <Container>
       <HeaderWrapper>

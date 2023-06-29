@@ -1,7 +1,18 @@
-export const ActorsPage = () => {
+import { Container } from "../../../components/Container";
+import { Section } from "../../../components/Section";
+import { MoviesList } from "../../movies/MoviesPage/MoviesList";
+import { ActorTile } from "../ActorTile";
+
+export const ActorPage = () => {
   return (
-    <>
-      <div>Actor1</div>
-    </>
+    <Container>
+      <Section body={<ActorTile />} />
+      <Section
+        title="Movies - cast(4)"
+        body={<MoviesList />} />
+      <Section
+        title="Movies crew(4)"
+        body={<MoviesList />} />
+    </Container>
   );
-}
+};

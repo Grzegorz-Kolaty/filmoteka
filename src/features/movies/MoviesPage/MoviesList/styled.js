@@ -7,7 +7,6 @@ export const Tile = styled.article`
   padding: 0px;
   gap: 24px;
 
-  position: absolute;
   width: 1368px;
   height: 650px;
   left: 276px;
@@ -19,7 +18,6 @@ export const Tile = styled.article`
     padding: 0px;
     gap: 16px;
 
-    position: absolute;
     width: 288px;
     height: 1069px;
     left: 16px;
@@ -75,7 +73,6 @@ export const MoviesTileFrame = styled.article`
 `;
 
 export const Image = styled.img`
-  position: absolute;
   width: 292px;
   height: 434px;
   left: 16px;
@@ -84,7 +81,6 @@ export const Image = styled.img`
   background: url(Mulan.jpg);
   border-radius: 5px;
   @media (max-width: 767px) {
-    position: absolute;
     width: 114px;
     height: 169px;
     left: calc(50% - 114px / 2 - 71px);
@@ -219,7 +215,6 @@ export const Description = styled.p`
   padding: 0px;
   gap: 8px;
 
-  position: absolute;
   width: 292px;
   height: 105px;
   left: 16px;

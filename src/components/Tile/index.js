@@ -46,3 +46,29 @@ export const TileDescription = styled.p`
   margin: 24px 0 0 0;
   line-height: 1.6;
 `;
+
+export const Subtitle = styled.span`
+  color: ${({ theme }) => theme.color.stormGray};
+  font-size: 18px;
+  line-height: 21.6px;
+`;
+
+export const Description = styled.p`
+  font-size: 20px;
+  line-height: 32px;
+`;
+
+
+export const TileWrapper = ({ title, subtitle, subtitle2, subtitleText, subtitleText2, description, img }) => {
+  return (
+    <Tile>
+      <TileImage src={img} />
+      <TileContent>
+        <TileTitle>{title}</TileTitle>
+        <Subtitle>{subtitle}</Subtitle>{subtitleText} <br />
+        <Subtitle>{subtitle2}</Subtitle>{subtitleText2}
+        <Description>{description}</Description>
+      </TileContent>
+    </Tile>
+  );
+};

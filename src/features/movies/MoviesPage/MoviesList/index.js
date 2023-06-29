@@ -1,5 +1,5 @@
 import poster from "./../../../../components/images/poster.png";
-import Header from "../../../../components/Header";
+import { Header } from "../../../../components/Header";
 import {
   Tile,
   MoviesTile,
