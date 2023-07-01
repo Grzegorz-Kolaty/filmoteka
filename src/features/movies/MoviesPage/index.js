@@ -22,7 +22,8 @@ export const MoviesPage = () => {
         </>
       ) : (
         <>
-          <Section title="Search result for Mulan(6)" body={<MoviesList />} />
+          <Section
+            body={<MoviesList />} />
         </>
       )}
     </Container>
