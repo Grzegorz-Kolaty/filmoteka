@@ -1,10 +1,10 @@
-import { TileWrapper } from "../../../components/Tile";
+import { Tile } from "../../../components/Tile";
 import actor from "../../../components/images/actor.png";
 
 export const ActorTile = () => {
   return (
     <>
-      <TileWrapper
+      <Tile
         img={actor}
         title="Liu Yifei"
         subtitle="Date of birth: "

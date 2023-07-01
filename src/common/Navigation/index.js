@@ -13,9 +13,9 @@ const Navigation = () => {
         </Logo>
         <List>
           <NavigationLink to="/movies">movies</NavigationLink>
-          <NavigationLink to="/movie">movieDetails</NavigationLink>
+          <NavigationLink to="/movie">movie-Details</NavigationLink>
           <NavigationLink to="/actors">people</NavigationLink>
-          <NavigationLink to="/actor">actorDetails</NavigationLink>
+          <NavigationLink to="/actor">actor-Details</NavigationLink>
         </List>
         <Search />
       </NavContainer>

@@ -1,74 +1,15 @@
-import { styled } from "styled-components";
+import { Content, Description, Image, Subtitle, Title, Wrapper } from "./styled";
 
-export const Tile = styled.article`
-  background: ${({ theme }) => theme.color.white};
-  padding: 40px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-gap: 40px;
-`;
-
-export const TileImage = styled.img`
-  width: 312px;
-  height: 464px;
-`;
-
-export const TileContent = styled.div``;
-
-export const TileTitle = styled.header`
-  font-weight: 600;
-  font-size: 36px;
-  margin-bottom: 24px;
-`;
-
-export const TileSubtitle = styled.div`
-  font-size: 22px;
-`;
-
-export const TileTags = styled.ul`
-  padding-left: 0px;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 16px -8px;
-`;
-
-export const TileTag = styled.li`
-  background: ${({ theme }) => theme.color.mystic};
-  padding: 8px 16px;
-  font-size: 14px;
-  margin: 8px;
-  border-radius: 5px;
-`;
-
-export const TileDescription = styled.p`
-  font-size: 20px;
-  margin: 24px 0 0 0;
-  line-height: 1.6;
-`;
-
-export const Subtitle = styled.span`
-  color: ${({ theme }) => theme.color.stormGray};
-  font-size: 18px;
-  line-height: 21.6px;
-`;
-
-export const Description = styled.p`
-  font-size: 20px;
-  line-height: 32px;
-`;
-
-
-export const TileWrapper = ({ title, subtitle, subtitle2, subtitleText, subtitleText2, description, img }) => {
+export const Tile = ({ title, subtitle, subtitle2, subtitleText, subtitleText2, description, img }) => {
   return (
-    <Tile>
-      <TileImage src={img} />
-      <TileContent>
-        <TileTitle>{title}</TileTitle>
+    <Wrapper>
+      <Image src={img} />
+      <Content>
+        <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>{subtitleText} <br />
         <Subtitle>{subtitle2}</Subtitle>{subtitleText2}
         <Description>{description}</Description>
-      </TileContent>
-    </Tile>
+      </Content>
+    </Wrapper>
   );
 };
