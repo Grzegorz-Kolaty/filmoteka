@@ -2,6 +2,8 @@ import { Container } from "../../../components/Container";
 import { Section } from "../../../components/Section";
 import { ActorTile } from "../ActorTile/index";
 import { MoviesList } from "../../movies/MoviesPage/MoviesList";
+
+
 export const ActorPage = () => {
   return (
     <Container>

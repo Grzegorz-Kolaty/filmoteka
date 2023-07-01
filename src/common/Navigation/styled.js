@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Nav = styled.header`
   background: ${({ theme }) => theme.color.black};
@@ -81,7 +81,7 @@ export const List = styled.ul`
   padding: 0;
 `;
 
-export const NavigationLink = styled(NavLink)`
+export const NavigationLink = styled(Link)`
   display: inherit;
   padding: 8px 24px;
   margin: 23px 0 24px 5px;
@@ -114,4 +114,4 @@ export const NavigationLink = styled(NavLink)`
     padding: 8px;
     margin: 10px 0;
   }
-`;
+`; 
