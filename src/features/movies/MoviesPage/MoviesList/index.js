@@ -5,7 +5,7 @@ import { MoviesPopular } from "../MoviesPopular";
 export const MoviesList = () => {
   return (
     <Container>
-      <Section title="Popular movies" body={<MoviesPopular />} />
+      <Section body={<MoviesPopular />} />
     </Container>
   );
 };
