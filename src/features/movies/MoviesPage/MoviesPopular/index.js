@@ -1,66 +1,11 @@
-import poster from "./../../../../components/images/poster.png";
-import {
-  Tile,
-  MoviesTile,
-  Title,
-  Subtitle,
-  Tags,
-  Tag,
-  Image,
-  Description,
-} from "../MoviesList/styled";
+import { Container } from "../../../../components/Container";
+import { Section } from "../../../../components/Section";
+import Movies from "../getMovies";
 
 export const MoviesPopular = () => {
   return (
-    <Tile>
-      <MoviesTile>
-        <Image src={poster} alt="" />
-        <Description>
-          <Title>Mulan</Title>
-          <Subtitle>2020</Subtitle>
-          <Tags>
-            <Tag>Action</Tag>
-            <Tag>Action</Tag>
-            <Tag>Action</Tag>
-          </Tags>
-        </Description>
-      </MoviesTile>
-      <MoviesTile>
-        <Image src={poster} alt="" />
-        <Description>
-          <Title>Mulan</Title>
-          <Subtitle>2020</Subtitle>
-          <Tags>
-            <Tag>Action</Tag>
-            <Tag>Action</Tag>
-            <Tag>Action</Tag>
-          </Tags>
-        </Description>
-      </MoviesTile>
-      <MoviesTile>
-        <Image src={poster} alt="" />
-        <Description>
-          <Title>Mulan</Title>
-          <Subtitle>2020</Subtitle>
-          <Tags>
-            <Tag>Action</Tag>
-            <Tag>Action</Tag>
-            <Tag>Action</Tag>
-          </Tags>
-        </Description>
-      </MoviesTile>
-      <MoviesTile>
-        <Image src={poster} alt="" />
-        <Description>
-          <Title>Mulan</Title>
-          <Subtitle>2020</Subtitle>
-          <Tags>
-            <Tag>Action</Tag>
-            <Tag>Action</Tag>
-            <Tag>Action</Tag>
-          </Tags>
-        </Description>
-      </MoviesTile>
-    </Tile>
+    <Container>
+      <Section body={<Movies />} />
+    </Container>
   );
 };
