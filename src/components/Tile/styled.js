@@ -1,20 +1,22 @@
 import { styled, css } from "styled-components";
 
 export const Wrapper = styled.article`
-  padding: 16px;
-  width: 208px;
-  height: 339px;
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
   justify-content: center;
-  
   border-radius: 5px;
+  padding: 40px;
+  
+  grid-gap: 40px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.50);
-
   background: ${({ theme }) => theme.color.white};
-  ${({ person }) => person && css`
+
+  ${({ list }) => list && css`
     grid-template-columns: auto;
     padding: 16px;
+    grid-gap: 10px;
+    width: 208px;
+    height: 339px;
   `}
 `;
 
@@ -31,8 +33,13 @@ export const Image = styled.img`
 
 export const Content = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  ${({ list }) => list && css`
+    align-items: center;
+`}
 `;
 
 export const Title = styled.h1`

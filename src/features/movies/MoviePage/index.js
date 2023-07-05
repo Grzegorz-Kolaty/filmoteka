@@ -4,7 +4,6 @@ import { Rating } from "../../../components/Rating";
 import { HeaderWrapper } from "./styled";
 import { Section } from "../../../components/Section/index";
 import { MovieTile } from "../MovieTile";
-import { Crew } from "../../actors/ActorsPage/Crew";
 
 export const MoviePage = () => {
   const task = true;
@@ -30,7 +29,7 @@ export const MoviePage = () => {
 
       {/* <Section title="Cast" body={<ActorsList />} /> */}
 
-      <Section title="Crew" body={<Crew />} />
+      <Section title="Crew" />
     </Container>
   );
 };

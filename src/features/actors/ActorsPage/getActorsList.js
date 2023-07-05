@@ -41,7 +41,7 @@ const ActorList = () => {
           <List>
             {actors.map((actor) => (
               <Item key={actor.id}>
-                <Tile person list
+                <Tile list
                   titleSmall={actor.name}
                   img={actor.profile_path
                     ? API_IMG + actor.profile_path
