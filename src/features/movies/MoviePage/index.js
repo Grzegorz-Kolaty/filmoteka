@@ -1,3 +1,4 @@
+import React from "react";
 import { Container } from "../../../components/Container";
 import { Header } from "../../../components/Header";
 import { Rating } from "../../../components/Rating";
@@ -6,6 +7,7 @@ import { Section } from "../../../components/Section/index";
 import { MovieTile } from "../MovieTile";
 import { ActorsList } from "../../actors/ActorsPage/ActorsList";
 import { Crew } from "../../actors/ActorsPage/Crew";
+import { Loading, NotFound } from "../MoviesPage/styled";
 
 export const MoviePage = () => {
   const task = true;
@@ -16,6 +18,28 @@ export const MoviePage = () => {
         <div>Header z obrazkiem na full</div>
         <div>Header z obrazkiem na full</div>
         <div>Header z obrazkiem na full</div>
+      </Container>
+    );
+  }
+
+  const isLoading = false; // Ustaw to na true, jeśli chcesz wyświetlić stan ładowania
+  const isError = false; // Ustaw to na true, jeśli chcesz wyświetlić stan błędu
+
+  if (isLoading) {
+    return (
+      <Container>
+        <Section title="Searching for results" body={<Loading />} />
+      </Container>
+    );
+  }
+
+  if (isError) {
+    return (
+      <Container>
+        <Section
+          title="Sorry, there are no results..."
+          body={<NotFound />}
+        />
       </Container>
     );
   }
