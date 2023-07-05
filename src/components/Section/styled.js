@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Sections = styled.section`
   background-color: transparent;
-  margin: 0 auto;
   max-width: 1368px;
+  margin: 0 auto;
 `;
 
 export const Title = styled.h2`

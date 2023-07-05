@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Section } from '../../../components/Section';
 import { Container } from '../../../components/Container';
+import { Tile } from '../../../components/Tile';
+import { Item, List } from '../../../components/Tile/styled';
+import noProfilePic from "../../../components/images/noProfilePic.svg";
 
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
 const API_URL = "https://api.themoviedb.org/3/person/popular";
+const API_IMG = "https://image.tmdb.org/t/p/w500";
 
 const ActorList = () => {
   const [actors, setActors] = useState([]);
@@ -14,9 +18,8 @@ const ActorList = () => {
       try {
         const response = await axios.get(API_URL, {
           params: {
-            language: 'en-US',
-            page: '1',
             api_key: API_KEY,
+            page: "1",
           },
         });
 
@@ -29,16 +32,25 @@ const ActorList = () => {
     fetchActors();
   }, []);
 
-  console.log(actors)
+  console.log(actors);
 
   return (
     <Container>
-      <Section title="Popular Actors" />
-      <ul>
-        {actors.map((actor) => (
-          <li key={actor.id}>{actor.name}</li>
-        ))}
-      </ul>
+      <Section title="Popular Actors"
+        body={
+          <List>
+            {actors.map((actor) => (
+              <Item key={actor.id}>
+                <Tile list
+                  titleSmall={actor.name}
+                  img={actor.profile_path
+                    ? API_IMG + actor.profile_path
+                    : noProfilePic
+                  } />
+              </Item>
+            ))}
+          </List>}
+      />
     </Container>
   );
 };
