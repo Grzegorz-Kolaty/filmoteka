@@ -35,8 +35,9 @@ const Movies = () => {
     return movies.map((movie) => (
       <Item key={movie.id}>
         <Tile
-          list
-          titleSmall={movie.title}
+          info
+          popular
+          movieTitle={movie.title}
           img={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
@@ -49,7 +50,10 @@ const Movies = () => {
 
   return (
     <Container>
-      <Section title="Popular Movies" body={<List>{renderMovies()}</List>} />
+      <Section
+        title="Popular Movies"
+        body={<List row>{renderMovies()}</List>}
+      />
     </Container>
   );
 };
