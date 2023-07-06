@@ -98,36 +98,6 @@ export const Title = styled.header`
   }
 `;
 
-export const Subtitle = styled.div`
-  width: 39px;
-  height: 24px;
-  color: #7e839a;
-  flex: none;
-  order: 1;
-  align-self: flex-start;
-  flex-grow: 0;
-  font-size: 16px;
-  font-family: Poppins;
-  line-height: 150%;
-  @media (max-width: 767px) {
-    width: 32px;
-    height: 17px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 130%;
-
-    display: flex;
-    align-items: center;
-    color: #7e839a;
-    flex: none;
-    order: 1;
-    align-self: flex-start;
-    flex-grow: 0;
-  }
-`;
-
 export const Tags = styled.ul`
   display: flex;
   flex-direction: row;

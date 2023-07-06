@@ -74,7 +74,7 @@ export const TitleSmall = styled.h2`
 
 export const MovieTitle = styled.h2`
   width: 292px;
-  height: 29px;
+  height: 0px;
   flex: none;
   order: 0;
   align-self: center;
@@ -129,4 +129,81 @@ export const Subtitle = styled.span`
 export const Description = styled.p`
   font-size: 20px;
   line-height: 32px;
+`;
+
+export const MovieDate = styled.p`
+  width: 96px;
+  height: 24px;
+  color: #7e839a;
+  flex-grow: 0;
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 150%;
+  @media (max-width: 767px) {
+    width: 32px;
+    height: 17px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 130%;
+
+    display: flex;
+    align-items: center;
+    color: #7e839a;
+    flex: none;
+    order: 1;
+    align-self: flex-start;
+    flex-grow: 0;
+  }
+`;
+
+export const MovieGenre = styled.span`
+  background-color: #e4e6f0;
+  padding: 4px 8px;
+  margin-right: 8px;
+  border-radius: 5px;
+`;
+
+export const Tag = styled.p`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+  width: 279px;
+  height: 36px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 8px;
+
+    width: 107px;
+    height: 46px;
+
+    flex: none;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+  }
+`;
+
+export const Tags = styled.ul`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const Pagination = styled.div`
+  width: 525px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
 `;

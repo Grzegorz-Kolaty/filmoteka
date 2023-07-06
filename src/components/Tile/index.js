@@ -7,6 +7,11 @@ import {
   TitleSmall,
   MovieTitle,
   Wrapper,
+  MovieDate,
+  MovieGenre,
+  Tag,
+  Tags,
+  Pagination,
 } from "./styled";
 
 export const Tile = ({
@@ -24,6 +29,11 @@ export const Tile = ({
   description,
   img,
   info,
+  movieDate,
+  movieGenre,
+  tag,
+  tags,
+  pagination,
 }) => {
   return (
     <Wrapper person={person} popular={popular}>
@@ -46,6 +56,33 @@ export const Tile = ({
           </div>
         )}
         {description && <Description>{description}</Description>}
+        {movieDate && (
+          <p>
+            <MovieDate>{movieDate}</MovieDate>
+          </p>
+        )}
+        {movieGenre && (
+          <div>
+            {movieGenre.split(",").map((genre) => (
+              <MovieGenre key={genre}>{genre}</MovieGenre>
+            ))}
+          </div>
+        )}
+        {tag && (
+          <p>
+            <Tag>{tag}</Tag>
+          </p>
+        )}
+        {tags && (
+          <ul>
+            <Tags>{tags}</Tags>
+          </ul>
+        )}
+        {pagination && (
+          <div>
+            <Pagination>{pagination}</Pagination>
+          </div>
+        )}
       </Content>
     </Wrapper>
   );
