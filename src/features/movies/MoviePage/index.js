@@ -1,6 +1,10 @@
-import { ActorsList } from "../../actors/ActorsPage/ActorsList";
-import { Crew } from "../../actors/ActorsPage/Crew";
+import { Container } from "../../../components/Container";
+import { Header } from "../../../components/Header";
+import { Section } from "../../../components/Section";
+import { Rating } from "../../../components/Rating";
 import { Loading, NotFound } from "../MoviesPage/styled";
+import { HeaderWrapper } from "./styled";
+import { MovieTile } from "../MovieTile"
 
 export const MoviePage = () => {
   const task = true;
