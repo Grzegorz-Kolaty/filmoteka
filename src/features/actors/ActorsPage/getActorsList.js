@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Section } from '../../../components/Section';
-import { Container } from '../../../components/Container';
-import { Tile } from '../../../components/Tile';
-import { Item, List } from '../../../components/Tile/styled';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Section } from "../../../components/Section";
+import { Container } from "../../../components/Container";
+import { Tile } from "../../../components/Tile";
+import { Item, List } from "../../../components/Tile/styled";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
@@ -36,20 +36,24 @@ const ActorList = () => {
 
   return (
     <Container>
-      <Section title="Popular Actors"
+      <Section
+        title="Popular Actors"
         body={
           <List>
             {actors.map((actor) => (
               <Item key={actor.id}>
                 <Tile list
                   titleSmall={actor.name}
-                  img={actor.profile_path
-                    ? API_IMG + actor.profile_path
-                    : noProfilePic
-                  } />
+                  img={
+                    actor.profile_path
+                      ? API_IMG + actor.profile_path
+                      : noProfilePic
+                  }
+                />
               </Item>
             ))}
-          </List>}
+          </List>
+        }
       />
     </Container>
   );
