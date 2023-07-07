@@ -49,7 +49,7 @@ export const Content = styled.div`
     info &&
     css`
       width: 292px;
-      height: 105px;
+      height: 124px;
       display: inline-flex;
       flex-direction: column;
       align-items: flex-start;
@@ -133,7 +133,7 @@ export const Description = styled.p`
 
 export const MovieDate = styled.p`
   width: 96px;
-  height: 24px;
+  height: 0px;
   color: #7e839a;
   flex-grow: 0;
   font-size: 16px;
@@ -165,6 +165,7 @@ export const MovieGenre = styled.span`
   display: inline-flex;
   margin-right: 8px;
   border-radius: 5px;
+  margin-top: 6px;
 `;
 
 export const Tag = styled.p`
