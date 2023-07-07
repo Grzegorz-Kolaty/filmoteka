@@ -209,5 +209,5 @@ export const Pagination = styled.div`
   align-items: center;
   gap: 24px;
   margin-top: 40px;
-  margin-left: 460px;
+  margin-left: 410px;
 `;

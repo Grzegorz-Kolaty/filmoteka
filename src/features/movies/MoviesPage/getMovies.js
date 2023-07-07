@@ -4,6 +4,8 @@ import { Section } from "../../../components/Section";
 import { Container } from "../../../components/Container";
 import { Item, List, Pagination } from "../../../components/Tile/styled";
 import { Tile } from "../../../components/Tile";
+import { Button, Pages } from "./styled";
+import vectorImage from "../../../components/images/vector.svg";
 
 const API_KEY = "bcf20e98fe4a34fff9d2e944e0f0cd1d";
 const API_URL = "https://api.themoviedb.org/3/movie/popular";
@@ -105,27 +107,41 @@ const Movies = () => {
           <>
             <List row>{renderMovies()}</List>
             <Pagination>
-              <button onClick={handleFirstPage} disabled={currentPage === 1}>
+              <Button onClick={handleFirstPage} disabled={currentPage === 1}>
+                <img src={vectorImage} alt="vector" />
                 First
-              </button>
-              <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+              </Button>
+              <Button onClick={handlePreviousPage} disabled={currentPage === 1}>
+                <img src={vectorImage} alt="vector" />
                 Previous
-              </button>
-              <p>
-                Page {currentPage} of {totalPages}
-              </p>
-              <button
+              </Button>
+              <Pages>
+                <div>
+                  Page {currentPage} of {totalPages}
+                </div>
+              </Pages>
+              <Button
                 onClick={handleNextPage}
                 disabled={currentPage === totalPages}
               >
                 Next
-              </button>
-              <button
+                <img
+                  src={vectorImage}
+                  alt="Next"
+                  style={{ transform: "rotate(180deg)" }}
+                />
+              </Button>
+              <Button
                 onClick={handleLastPage}
                 disabled={currentPage === totalPages}
               >
                 Last
-              </button>
+                <img
+                  src={vectorImage}
+                  alt="Last"
+                  style={{ transform: "rotate(180deg)" }}
+                />
+              </Button>
             </Pagination>
           </>
         }
