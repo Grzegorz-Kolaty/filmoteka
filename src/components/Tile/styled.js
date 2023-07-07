@@ -203,11 +203,11 @@ export const Tags = styled.ul`
 `;
 
 export const Pagination = styled.div`
-  width: 525px;
+  width: 560px;
   height: 36px;
   display: inline-flex;
   align-items: center;
   gap: 24px;
   margin-top: 40px;
-  margin-left: 410px;
+  margin-left: 380px;
 `;
