@@ -58,7 +58,6 @@ const Movies = () => {
   const handleLastPage = () => {
     setCurrentPage(totalPages);
   };
-  console.log(totalPages);
 
   const handlePreviousPage = () => {
     setCurrentPage((prevPage) => prevPage - 1);
@@ -74,7 +73,9 @@ const Movies = () => {
       return genre ? genre.name : "";
     });
 
-    return movieGenres.join(", ");
+    const limitedGenres = movieGenres.slice(0, 3);
+
+    return limitedGenres.join(", ");
   };
 
   const renderMovies = () => {
@@ -110,7 +111,9 @@ const Movies = () => {
               <button onClick={handlePreviousPage} disabled={currentPage === 1}>
                 Previous
               </button>
-              <p> Page 1 of 500 </p>
+              <p>
+                Page {currentPage} of {totalPages}
+              </p>
               <button
                 onClick={handleNextPage}
                 disabled={currentPage === totalPages}

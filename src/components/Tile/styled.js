@@ -162,6 +162,7 @@ export const MovieDate = styled.p`
 export const MovieGenre = styled.span`
   background-color: #e4e6f0;
   padding: 4px 8px;
+  display: inline-flex;
   margin-right: 8px;
   border-radius: 5px;
 `;
@@ -206,4 +207,6 @@ export const Pagination = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 24px;
+  margin-top: 40px;
+  margin-left: 460px;
 `;
