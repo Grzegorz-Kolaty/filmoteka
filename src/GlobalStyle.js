@@ -14,7 +14,6 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   background-color: ${({ theme }) => theme.color.whisper};
-  max-width: 1920px;
   margin: 0 auto;
 }
 `;

@@ -1,6 +1,6 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Tile } from "../../../components/Tile";
 
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
 const API_URL = "https://api.themoviedb.org/3/movie/";
@@ -29,19 +29,13 @@ export const MovieTile = () => {
   }
 
   return (
-    
-      <div>
-        <article>
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-          <div>
-            <header>{movie.title}</header>
-            <span>Release Date: {movie.release_date}</span>
-            <br />
-            <span>Rating: {movie.vote_average}</span>
-            <p>{movie.overview}</p>
-          </div>
-        </article>
-      </div>
-    
+    <Tile
+      img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+      alt={movie.title}
+      title={movie.title}
+      subtitle={movie.release_date}
+      subtitle2={movie.vote_average}
+      description={movie.overview}
+    />
   );
 };

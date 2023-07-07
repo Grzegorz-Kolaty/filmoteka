@@ -36,9 +36,10 @@ export const Tile = ({
   pagination,
 }) => {
   return (
-    <Wrapper person={person} popular={popular}>
+    <Wrapper person={person} list={list} popular={popular}>
       <Image src={img} list={list} row={row} />
-      <Content info={info}>
+      <Content list={list}>
+
         {title && <Title>{title}</Title>}
         {titleSmall && <TitleSmall>{titleSmall}</TitleSmall>}
         {movieTitle && <MovieTitle>{movieTitle}</MovieTitle>}
