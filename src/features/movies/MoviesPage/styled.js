@@ -27,3 +27,32 @@ export const Loading = styled.img`
   margin-top: 32px;
   margin-left: 432px;
 `;
+
+export const Button = styled.button`
+  display: flex;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 5px;
+  background: #e4e6f0;
+  border: none;
+
+  svg {
+    width: 7px;
+    height: 11px;
+  }
+
+  .svg-right {
+    width: 7px;
+    height: 11px;
+    transform: rotate(180deg);
+  }
+`;
+
+export const Pages = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 24px;
+  width: 118px;
+`;
