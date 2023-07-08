@@ -59,7 +59,7 @@ export const ActorCredits = () => {
           <List row>
             {crew.map((crew) => (
               <Item key={crew.id}>
-                <Tile list
+                <Tile popular
                   titleSmall={crew.title}
                   img={crew.poster_path
                     ? API_IMG + crew.poster_path

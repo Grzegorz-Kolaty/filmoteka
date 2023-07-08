@@ -43,18 +43,13 @@ export const Tile = ({
         {title && <Title>{title}</Title>}
         {titleSmall && <TitleSmall>{titleSmall}</TitleSmall>}
         {movieTitle && <MovieTitle>{movieTitle}</MovieTitle>}
-        {subtitle && subtitleText && (
+        {subtitle && (
           <div>
             <Subtitle>{subtitle}</Subtitle>
-            {subtitleText}
-            <br />
           </div>
         )}
-        {subtitle2 && subtitleText2 && (
-          <div>
+        {subtitle2 && (
             <Subtitle>{subtitle2}</Subtitle>
-            {subtitleText2}
-          </div>
         )}
         {description && <Description>{description}</Description>}
         {movieDate && (
