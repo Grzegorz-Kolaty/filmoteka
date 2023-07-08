@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 
 const API_URL = "https://api.themoviedb.org/3";
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
-
+const API_IMG = "https://image.tmdb.org/t/p/w500";
 export const MoviePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -21,7 +21,7 @@ export const MoviePage = () => {
   useEffect(() => {
     const fetchHeaderImage = async () => {
       try {
-        const response = await axios.get(`${API_URL}/movie/1?api_key=${API_KEY}`);
+        const response = await axios.get(`${API_IMG}/movie/1?api_key=${API_KEY}`);
         const imagePath = response.data.backdrop_path;
         setHeaderImage(`${API_URL}/w1280${imagePath}`);
         setIsLoading(false);
