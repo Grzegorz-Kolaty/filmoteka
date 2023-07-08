@@ -4,23 +4,47 @@ import { Section } from "../../../components/Section";
 import { Rating } from "../../../components/Rating";
 import { Loading, NotFound } from "../MoviesPage/styled";
 import { HeaderWrapper } from "./styled";
-import { MovieTile } from "../MovieTile"
+import { MovieTile } from "../MovieTile";
+import axios from "axios";
+import { useEffect, useState } from 'react';
+
+const API_URL = "https://api.themoviedb.org/3";
+const API_KEY = "991805bb8d078db21dd78fe533903f2b";
 
 export const MoviePage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [headerImage, setHeaderImage] = useState('');
+
   const task = true;
+
+  useEffect(() => {
+    const fetchHeaderImage = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/movie/1?api_key=${API_KEY}`);
+        const imagePath = response.data.backdrop_path;
+        setHeaderImage(`${API_URL}/w1280${imagePath}`);
+        setIsLoading(false);
+      } catch (error) {
+        setIsError(false);
+        setIsLoading(false);
+      }
+    };
+
+    if (task) {
+      fetchHeaderImage();
+    }
+  }, [task]);
 
   if (!task) {
     return (
       <Container>
-        <div>Header z obrazkiem na full</div>
-        <div>Header z obrazkiem na full</div>
-        <div>Header z obrazkiem na full</div>
+        <div>Header with full-screen image</div>
+        <div>Header with full-screen image</div>
+        <div>Header with full-screen image</div>
       </Container>
     );
   }
-
-  const isLoading = false; // Ustaw to na true, jeśli chcesz wyświetlić stan ładowania
-  const isError = false; // Ustaw to na true, jeśli chcesz wyświetlić stan błędu
 
   if (isLoading) {
     return (
@@ -33,17 +57,14 @@ export const MoviePage = () => {
   if (isError) {
     return (
       <Container>
-        <Section
-          title="Sorry, there are no results..."
-          body={<NotFound />}
-        />
+        <Section title="Sorry, there are no results..." body={<NotFound />} />
       </Container>
     );
   }
 
   return (
     <Container>
-      <HeaderWrapper>
+      <HeaderWrapper style={{ backgroundImage: `url(${headerImage})` }}>
         <Header title="Mulan long title" />
         <Rating />
       </HeaderWrapper>

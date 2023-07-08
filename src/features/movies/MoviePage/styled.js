@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import posterBig from "../../../components/images/posterBig.png";
 
 export const HeaderWrapper = styled.div`
   margin: 0 auto;
@@ -10,8 +9,9 @@ export const HeaderWrapper = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
-  background-image: url("${posterBig}");
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: inset 0px 0px 100px 100px rgba(0, 0, 0, 1);
+  background-image: ${({ imageUrl }) => imageUrl && `url(${imageUrl})`};
 `;
+
