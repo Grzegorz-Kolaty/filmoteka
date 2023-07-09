@@ -6,25 +6,27 @@ export const Wrapper = styled.article`
   justify-content: center;
   border-radius: 5px;
   padding: 40px;
-  
+
   grid-gap: 40px;
-  box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.50);
+  box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.5);
   background: ${({ theme }) => theme.color.white};
 
-  ${({ list }) => list && css`
-    grid-template-columns: auto;
-    padding: 16px;
-    grid-gap: 10px;
-    width: 208px;
-    height: 339px;
-  `}
-    ${({ popular }) =>
+  ${({ list }) =>
+    list &&
+    css`
+      grid-template-columns: auto;
+      padding: 16px;
+      grid-gap: 10px;
+      width: 208px;
+      height: 339px;
+    `}
+  ${({ popular }) =>
     popular &&
     css`
       grid-template-columns: auto;
       padding: 24px;
       width: 324px;
-      height: 650px;
+      height: 680px;
     `}
 `;
 
@@ -45,22 +47,14 @@ export const Content = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-   flex-direction: column;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 
-  ${({ list }) => list && css`
-    align-items: center;
-`}
-  ${({ info }) =>
-    info &&
+  ${({ list }) =>
+    list &&
     css`
-      width: 292px;
-      height: 124px;
-      display: inline-flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: start;
+      align-items: center;
     `}
 `;
 
@@ -207,14 +201,4 @@ export const Tags = styled.ul`
   display: flex;
   align-items: center;
   gap: 8px;
-`;
-
-export const Pagination = styled.div`
-  width: 560px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  gap: 24px;
-  margin-top: 40px;
-  margin-left: 380px;
 `;
