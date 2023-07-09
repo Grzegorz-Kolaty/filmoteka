@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Section } from "../../../components/Section";
 import { Container } from "../../../components/Container";
-import { Item, List, Pagination } from "../../../components/Tile/styled";
+import { Item, List } from "../../../components/Tile/styled";
+import { Pagination } from "../../../components/Pagination/styled";
 import { Tile } from "../../../components/Tile";
 import { Button, Pages } from "./styled";
 import vectorImage from "../../../components/images/vector.svg";
@@ -84,7 +85,6 @@ const Movies = () => {
     return movies.map((movie) => (
       <Item key={movie.id}>
         <Tile
-          info
           popular
           movieTitle={movie.title}
           movieDate={movie.release_date}
