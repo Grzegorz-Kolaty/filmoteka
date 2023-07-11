@@ -4,6 +4,7 @@ import { Tile } from "../../../components/Tile";
 
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
 const API_URL = "https://api.themoviedb.org/3/movie/";
+const API_IMG = "https://image.tmdb.org/t/p/w500";
 
 export const MovieTile = () => {
   const [movie, setMovie] = useState(null);
@@ -14,7 +15,7 @@ export const MovieTile = () => {
 
   const fetchMovieTile = async () => {
     try {
-      const movieId = 123; // Replace with the desired movie ID
+      const movieId = 337401; // Movie ID for Mulan
       const response = await axios.get(
         `${API_URL}${movieId}?api_key=${API_KEY}`
       );
@@ -30,7 +31,7 @@ export const MovieTile = () => {
 
   return (
     <Tile
-      img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+      img={`${API_IMG}${movie.poster_path}`} // Use the API_IMG variable to construct the image URL
       alt={movie.title}
       title={movie.title}
       subtitle={movie.release_date}

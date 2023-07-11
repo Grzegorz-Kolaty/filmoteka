@@ -10,41 +10,30 @@ import { useEffect, useState } from 'react';
 
 const API_URL = "https://api.themoviedb.org/3";
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
-const API_IMG = "https://image.tmdb.org/t/p/w500";
+const API_IMG = "https://image.tmdb.org/t/p/w1280";
+
 export const MoviePage = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [headerImage, setHeaderImage] = useState('');
-
-  const task = true;
 
   useEffect(() => {
     const fetchHeaderImage = async () => {
       try {
-        const response = await axios.get(`${API_IMG}/movie/1?api_key=${API_KEY}`);
+        const response = await axios.get(
+          `${API_URL}/movie/337401?api_key=${API_KEY}&language=en-US`
+        );
         const imagePath = response.data.backdrop_path;
-        setHeaderImage(`${API_URL}/w1280${imagePath}`);
+        setHeaderImage(`${API_IMG}${imagePath}`);
         setIsLoading(false);
       } catch (error) {
-        setIsError(false);
+        setIsError(true);
         setIsLoading(false);
       }
     };
 
-    if (task) {
-      fetchHeaderImage();
-    }
-  }, [task]);
-
-  if (!task) {
-    return (
-      <Container>
-        <div>Header with full-screen image</div>
-        <div>Header with full-screen image</div>
-        <div>Header with full-screen image</div>
-      </Container>
-    );
-  }
+    fetchHeaderImage();
+  }, []);
 
   if (isLoading) {
     return (

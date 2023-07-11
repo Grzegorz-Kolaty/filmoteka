@@ -12,6 +12,6 @@ export const HeaderWrapper = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   box-shadow: inset 0px 0px 100px 100px rgba(0, 0, 0, 1);
-  background-image: ${({ imageUrl }) => imageUrl && `url(${imageUrl})`};
+ 
 `;
 
