@@ -1,3 +1,4 @@
+import { Rating } from "../Rating";
 import {
   Content,
   Description,
@@ -8,9 +9,6 @@ import {
   MovieTitle,
   Wrapper,
   MovieDate,
-  MovieGenre,
-  Tag,
-  Tags,
   Pagination,
 } from "./styled";
 
@@ -30,55 +28,31 @@ export const Tile = ({
   img,
   info,
   movieDate,
-  movieGenre,
-  tag,
-  tags,
   pagination,
+  rating,
+  votes
 }) => {
   return (
     <Wrapper person={person} list={list} popular={popular}>
       <Image src={img} list={list} row={row} />
       <Content list={list}>
-
         {title && <Title>{title}</Title>}
         {titleSmall && <TitleSmall>{titleSmall}</TitleSmall>}
         {movieTitle && <MovieTitle>{movieTitle}</MovieTitle>}
-        {subtitle && (
-          <div>
-            <Subtitle>{subtitle}</Subtitle>
-          </div>
-        )}
-        {subtitle2 && (
-            <Subtitle>{subtitle2}</Subtitle>
-        )}
+        {subtitle && <Subtitle>{subtitle}{subtitleText}</Subtitle>}
+        {subtitle2 && <Subtitle>{subtitle2}{subtitleText2}</Subtitle>}
         {description && <Description>{description}</Description>}
         {movieDate && (
           <p>
             <MovieDate>{movieDate}</MovieDate>
           </p>
         )}
-        {movieGenre && (
-          <div>
-            {movieGenre.split(",").map((genre) => (
-              <MovieGenre key={genre}>{genre}</MovieGenre>
-            ))}
-          </div>
-        )}
-        {tag && (
-          <p>
-            <Tag>{tag}</Tag>
-          </p>
-        )}
-        {tags && (
-          <ul>
-            <Tags>{tags}</Tags>
-          </ul>
-        )}
         {pagination && (
           <div>
             <Pagination>{pagination}</Pagination>
           </div>
         )}
+        {rating && <Rating rating={rating} votes={votes} />}
       </Content>
     </Wrapper>
   );

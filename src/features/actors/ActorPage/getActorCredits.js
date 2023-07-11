@@ -14,19 +14,20 @@ export const ActorCredits = () => {
   const [crew, setCrew] = useState([]);
 
   useEffect(() => {
-    const fetchActorCredits = async () => {
-      try {
-        const response = await axios.get(API_URL, {
+    const fetchActorCredits = () => {
+      axios
+        .get(API_URL, {
           params: {
             api_key: API_KEY,
           },
+        })
+        .then((response) => {
+          setCredits(response.data.cast);
+          setCrew(response.data.crew);
+        })
+        .catch((error) => {
+          console.error(error);
         });
-
-        setCredits(response.data.cast);
-        setCrew(response.data.crew)
-      } catch (error) {
-        console.error(error);
-      }
     };
 
     fetchActorCredits();
@@ -39,15 +40,20 @@ export const ActorCredits = () => {
       <Section title={`Movies - cast (${credits.length})`}
         body={
           <List row>
-            {credits.map((credits) => (
-              <Item key={credits.id}>
+            {credits.map((credit) => (
+              <Item key={credit.id}>
                 <Tile popular
-                  titleSmall={credits.title}
-                  subtitle={credits.character}
-                  img={credits.poster_path
-                    ? API_IMG + credits.poster_path
-                    : noProfilePic
-                  } />
+                  titleSmall={credit.title}
+                  subtitle={credit.character}
+                  img={credit.poster_path
+                    ? API_IMG + credit.poster_path
+                    : noProfilePic}
+                  movieGenre={credit.genre_ids}
+                  rating={credit.vote_average === 0
+                    ? "0"
+                    : credit.vote_average}
+                  votes={credit.vote_count}>
+                </Tile>
               </Item>
             ))}
           </List>
@@ -69,7 +75,7 @@ export const ActorCredits = () => {
             ))}
           </List>
         }
-      />S
+      />
     </>
   );
 };

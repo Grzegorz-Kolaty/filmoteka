@@ -27,8 +27,6 @@ const ActorProfile = () => {
     fetchActorProfile();
   }, []);
 
-  console.log(profile);
-
   return (
     <Tile person
       img={API_IMG + profile.profile_path}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Section } from "../../../components/Section";
 import { Container } from "../../../components/Container";
@@ -6,16 +6,18 @@ import { Item, List, Pagination } from "../../../components/Tile/styled";
 import { Tile } from "../../../components/Tile";
 import { Button, Pages } from "./styled";
 import vectorImage from "../../../components/images/vector.svg";
+import { Tags } from "../../../components/Genre/index";
+import { useGenres } from "../../../components/Genre/getGenres";
 
 const API_KEY = "bcf20e98fe4a34fff9d2e944e0f0cd1d";
 const API_URL = "https://api.themoviedb.org/3/movie/popular";
-const API_GENRES = "https://api.themoviedb.org/3/genre/movie/list";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  const [genres, setGenres] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 500;
+
+  const { genres } = useGenres();
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -34,23 +36,7 @@ const Movies = () => {
       }
     };
 
-    const fetchGenres = async () => {
-      try {
-        const response = await axios.get(API_GENRES, {
-          params: {
-            language: "en-US",
-            api_key: API_KEY,
-          },
-        });
-
-        setGenres(response.data.genres);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     fetchMovies();
-    fetchGenres();
   }, [currentPage]);
 
   const handleFirstPage = () => {
@@ -69,16 +55,7 @@ const Movies = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  const getMovieGenre = (genreIds) => {
-    const movieGenres = genreIds.map((id) => {
-      const genre = genres.find((genre) => genre.id === id);
-      return genre ? genre.name : "";
-    });
-
-    const limitedGenres = movieGenres.slice(0, 3);
-
-    return limitedGenres.join(", ");
-  };
+  console.log(movies);
 
   const renderMovies = () => {
     return movies.map((movie) => (
@@ -88,13 +65,14 @@ const Movies = () => {
           popular
           movieTitle={movie.title}
           movieDate={movie.release_date}
-          movieGenre={getMovieGenre(movie.genre_ids)}
           img={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
               : ""
           }
-        />
+        >
+        </Tile>
+        <Tags ids={movie.genre_ids} genres={genres} />
       </Item>
     ));
   };
