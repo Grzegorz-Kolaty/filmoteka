@@ -1,6 +1,10 @@
 import { styled } from "styled-components";
 import star from "../images/star.svg"
 
+export const Wrapper = styled.div`
+  align-self: end;
+`;
+
 export const Star = styled.div`
   width: 24px;
   height: 24px;

@@ -1,59 +1,51 @@
+import { useEffect, useState } from "react";
+import { Tags } from "../Genre";
 import { Rating } from "../Rating";
 import {
-  Content,
+  Info,
   Description,
   Image,
-  Subtitle,
   Title,
-  TitleSmall,
-  MovieTitle,
   Wrapper,
-  MovieDate,
-  Pagination,
+  Extras
 } from "./styled";
 
-export const Tile = ({
-  person,
-  popular,
-  list,
-  row,
-  title,
-  titleSmall,
-  movieTitle,
-  subtitle,
-  subtitle2,
-  subtitleText,
-  subtitleText2,
-  description,
-  img,
-  info,
-  movieDate,
-  pagination,
-  rating,
-  votes
-}) => {
+export const Tile = ({ img, bigposter, poster, smallposter, date, title, from, genre, genres, rating, votes, overview }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 767);
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <Wrapper person={person} list={list} popular={popular}>
-      <Image src={img} list={list} row={row} />
-      <Content list={list}>
-        {title && <Title>{title}</Title>}
-        {titleSmall && <TitleSmall>{titleSmall}</TitleSmall>}
-        {movieTitle && <MovieTitle>{movieTitle}</MovieTitle>}
-        {subtitle && <Subtitle>{subtitle}{subtitleText}</Subtitle>}
-        {subtitle2 && <Subtitle>{subtitle2}{subtitleText2}</Subtitle>}
-        {description && <Description>{description}</Description>}
-        {movieDate && (
-          <p>
-            <MovieDate>{movieDate}</MovieDate>
-          </p>
-        )}
-        {pagination && (
-          <div>
-            <Pagination>{pagination}</Pagination>
-          </div>
-        )}
+    <Wrapper bigposter={bigposter} smallposter={smallposter}>
+      <Image src={img} poster={poster} smallposter={smallposter} bigposter={bigposter} />
+      <Description smallposter={smallposter} bigposter={bigposter}>
+        <Title smallposter={smallposter} bigposter={bigposter}>{title}</Title>
+        {date &&
+          <Info>
+            <Extras>Date of birth: </Extras>
+            {date}
+          </Info>
+        }
+        {from &&
+          <Info>
+            <Extras>Place of birth: </Extras>
+            {from}
+          </Info>
+        }
+        {genre && <Tags ids={genre} genres={genres} />}
         {rating && <Rating rating={rating} votes={votes} />}
-      </Content>
+        {!isMobile && bigposter && overview && <Info bigposter={bigposter}>{overview}</Info>}
+      </Description>
+      {isMobile && bigposter && overview && <Info bigposter={bigposter}>{overview}</Info>}
     </Wrapper>
   );
 };

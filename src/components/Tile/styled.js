@@ -1,69 +1,114 @@
-import { styled, css } from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Item = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
+export const Wrapper = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+  align-content: flex-start;
   justify-content: center;
-  width: 324px;
-  height: 650px;
-  padding: 40px;
+  gap: 16px;
+  padding: 16px;
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.50);
   background: ${({ theme }) => theme.color.white};
-`;
 
-export const Wrapper = styled.div`
+  @media(max-width: 767px) {
+    flex-flow: row wrap;
+    gap: 16px;
+    padding: 16px;
+  };
+
+  ${({ bigposter }) => bigposter && css`
+    flex-flow: row nowrap;
+    padding: 40px;
+  `}
+
+  ${({ smallposter }) => smallposter && css`
+    align-content: center;
+  `};
 `;
 
 export const Image = styled.img`
-  width: 292px;
-  height: 434px;
+  width: auto;
+  height: auto;
   border-radius: 5px;
+
+  @media(max-width: 767px) {
+    width: 114px;
+    height: 169px;
+    align-self: start;
+    justify-self: center;
+  };
+
+  ${({ bigposter }) => bigposter && css`
+    height: 564px;
+    width: 399px;
+  `};
+
+  ${({ poster }) => poster && css`
+    height: 434px;
+    width: 292px;
+  `};
+
+  ${({ smallposter }) => smallposter && css`
+    width: 177px;
+    height: 264px;
+  `};
+
 `;
 
-export const Content = styled.div`
-`;
-
-export const Title = styled.h1`
-  font-weight: 600;
-  font-size: 36px;
-  margin-bottom: 24px;
-`;
-
-export const TitleSmall = styled.h2`
-  margin: 0px;
+export const Title = styled.div`
   font-size: 22px;
   font-weight: 500;
   line-height: 1.3;
-`;
 
-export const MovieTitle = styled.h2`
-`;
+  ${({ bigposter }) => bigposter && css`
+    font-size: 36px;
+  `}
+  
+  @media(max-width: 767px) {
+    font-size: 16px;
+  };
 
-export const List = styled.div`
-`;
-
-
-export const Subtitle = styled.span`
-  color: ${({ theme }) => theme.color.stormGray};
-  font-size: 18px;
-  line-height: 21.6px;
+  ${({ smallposter }) => smallposter && css`
+    text-align: center;
+ `}
 `;
 
 export const Description = styled.div`
-  font-size: 20px;
-  line-height: 32px;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto 1fr;
+  grid-gap: 8px;
+
+  ${({ bigposter }) => bigposter && css`
+    font-size: 18px;
+  `};
+
+  ${({ smallposter }) => smallposter && css`
+    grid-template-rows: auto auto;
+  `};
+
+  @media(max-width: 767px) {
+    width: 50%;
+    font-size: 12px;
+  };
 `;
 
-export const MovieDate = styled.div`
+export const Info = styled.div`
+  line-height: 1.5;
+  color: ${({ theme }) => theme.color.woodsmoke};
+
+  ${({ bigposter }) => bigposter && css`
+    font-size: 20px;
+  `};
+
+  @media(max-width: 767px) {
+    font-size: 14px;
+  };
 `;
 
-export const Pagination = styled.div`
-  width: 560px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  gap: 24px;
-  margin-top: 40px;
-  margin-left: 380px;
+export const Extras = styled.span`
+  color: ${({ theme }) => theme.color.stormGray};
 `;

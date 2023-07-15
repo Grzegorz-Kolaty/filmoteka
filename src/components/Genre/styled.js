@@ -1,16 +1,17 @@
 import { styled } from "styled-components";
 
 export const Wrapper = styled.div`
-    display: grid;
-    grid-template-columns: auto;
+    display: flex;
+    flex-flow: row wrap;
     grid-gap: 8px;
+    justify-content: start;
+    align-items: center;
 `;
 
 export const Tag = styled.div`
-    grid-row: 1;
-    display: flex;
-    align-items: center;
     padding: 8px 16px;
     line-height: 1.1;
-    background-color: ${({theme}) => theme.color.mystics};
+    background-color: ${({ theme }) => theme.color.mystic};
+    border-radius: 5px;
+    white-space: nowrap;
 `;
