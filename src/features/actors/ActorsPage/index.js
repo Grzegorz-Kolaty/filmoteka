@@ -5,7 +5,9 @@ import ActorList from "./getActorsList";
 export const ActorsPage = () => {
   return (
     <Container>
-      <Section body={<ActorList />} />
+      <Section actors
+      title="Popular Actors"
+      body={<ActorList  />} />
     </Container>
   );
 };

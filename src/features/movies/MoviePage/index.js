@@ -70,7 +70,7 @@ export const MoviePage = () => {
         <Rating />
       </HeaderWrapper>
 
-      <Section body={<MovieTile />} />
+      <Section body={<MovieDetails />} />
 
       <Section
         title="Cast"

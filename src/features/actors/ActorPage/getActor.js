@@ -27,17 +27,13 @@ const ActorProfile = () => {
     fetchActorProfile();
   }, []);
 
-  console.log(profile);
-
   return (
-    <Tile person
+    <Tile bigposter
       img={API_IMG + profile.profile_path}
       title={profile.name}
-      subtitle="Date of birth: "
-      subtitleText={profile.birthday}
-      subtitle2="Place of birth: "
-      subtitleText2={profile.place_of_birth}
-      description={profile.biography}
+      date={profile.birthday}
+      from={profile.place_of_birth}
+      overview={profile.biography}
     />
   );
 };
