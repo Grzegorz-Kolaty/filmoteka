@@ -1,13 +1,18 @@
-import { Star, Wrapper } from "./styled";
+import { Rate, Star, Textbox, Wrapper } from "./styled";
 
-export const Rating = () => {
+export const Rating = ({ rating, votes }) => {
+  console.log(rating);
   return (
-    <>
-      <Wrapper>
-        <Star />
-        7,8 / 10
-      </Wrapper>
-      350 votes
-    </>
-  )
+    <Wrapper>
+      {rating && rating !== 0 ? (
+        <Textbox>
+          <Star />
+          <Rate>{rating.toFixed(1)}</Rate>
+          {votes} votes
+        </Textbox>
+      ) : (
+        <Textbox>No rating available</Textbox>
+      )}
+    </Wrapper>
+  );
 };
