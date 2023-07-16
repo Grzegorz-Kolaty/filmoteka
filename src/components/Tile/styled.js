@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   align-items: stretch;
   align-content: flex-start;
   justify-content: center;
-  gap: 16px;
+  gap: 40px;
   padding: 16px;
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.50);
@@ -23,8 +23,12 @@ export const Wrapper = styled.div`
     padding: 40px;
   `}
 
+  ${({ poster }) => poster && css`
+    gap: 16px;
+  `}
+
   ${({ smallposter }) => smallposter && css`
-    align-content: center;
+    align-content: flex-start;
   `};
 `;
 
@@ -80,14 +84,20 @@ export const Description = styled.div`
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto auto auto 1fr;
-  grid-gap: 8px;
+  grid-gap: 24px;
 
   ${({ bigposter }) => bigposter && css`
     font-size: 18px;
+    grid-gap: 8px;
   `};
+
+  ${({ poster }) => poster && css`
+    grid-gap: 8px;
+  `}
 
   ${({ smallposter }) => smallposter && css`
     grid-template-rows: auto auto;
+    grid-gap: 0px;
   `};
 
   @media(max-width: 767px) {

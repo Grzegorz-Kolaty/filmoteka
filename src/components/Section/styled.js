@@ -28,7 +28,8 @@ export const Body = styled.div`
 
   ${({ actors }) => actors && css`
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  
+    text-align: center;
+
     @media(max-width: 767px) {
       grid-template-columns: auto auto;
       grid-gap: 16px;
