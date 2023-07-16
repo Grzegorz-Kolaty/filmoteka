@@ -4,7 +4,7 @@ import { Section } from "../../../components/Section";
 import { Rating } from "../../../components/Rating";
 import { Loading, NotFound } from "../MoviesPage/styled";
 import { HeaderWrapper } from "./styled";
-import { MovieTile } from "../MovieTile"
+import { MovieDetails } from "../MoviesPage/MovieTile"
 
 export const MoviePage = () => {
   const task = true;
@@ -48,7 +48,7 @@ export const MoviePage = () => {
         <Rating />
       </HeaderWrapper>
 
-      <Section body={<MovieTile />} />
+      <Section body={<MovieDetails />} />
 
       {/* <Section title="Cast" body={<ActorsList />} /> */}
 

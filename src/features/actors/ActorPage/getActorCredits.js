@@ -1,32 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Tile } from '../../../components/Tile';
-import { Item, List } from '../../../components/Tile/styled';
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { Section } from '../../../components/Section';
+import { Tile } from '../../../components/Tile';
+import { useGenres } from '../../../components/Genre/getGenres';
 
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
-const API_URL = "https://api.themoviedb.org/3/person/122503/movie_credits";
-const API_IMG = "https://image.tmdb.org/t/p/w500";
+const API_URL = "https://api.themoviedb.org/3/person/1225/movie_credits";
+const API_IMG = "https://image.tmdb.org/t/p/w185";
 
-export const ActorCredits = () => {
+const ActorCredits = () => {
   const [credits, setCredits] = useState([]);
   const [crew, setCrew] = useState([]);
+  const { genres } = useGenres();
 
   useEffect(() => {
-    const fetchActorCredits = async () => {
-      try {
-        const response = await axios.get(API_URL, {
+    const fetchActorCredits = () => {
+      axios
+        .get(API_URL, {
           params: {
             api_key: API_KEY,
           },
+        })
+        .then((response) => {
+          setCredits(response.data.cast);
+          setCrew(response.data.crew);
+        })
+        .catch((error) => {
+          console.error(error);
         });
-
-        setCredits(response.data.cast);
-        setCrew(response.data.crew)
-      } catch (error) {
-        console.error(error);
-      }
     };
 
     fetchActorCredits();
@@ -36,40 +38,43 @@ export const ActorCredits = () => {
 
   return (
     <>
-      <Section title={`Movies - cast (${credits.length})`}
-        body={
-          <List row>
-            {credits.map((credits) => (
-              <Item key={credits.id}>
-                <Tile popular
-                  titleSmall={credits.title}
-                  subtitle={credits.character}
-                  img={credits.poster_path
-                    ? API_IMG + credits.poster_path
-                    : noProfilePic
-                  } />
-              </Item>
-            ))}
-          </List>
-        }
+      <Section movies
+        title={`Movies - cast (${credits.length})`}
+        body={credits.map((credit) => (
+          <Tile poster
+            key={credit.id}
+            img={
+              credit.poster_path
+                ? API_IMG + credit.poster_path
+                : noProfilePic
+            }
+            subtitle={credit.character}
+            title={credit.title}
+            date={credit.release_date}
+            genre={credit.genre_ids} genres={genres}
+            rating={credit.vote_average} votes={credit.vote_count}
+          />
+        ))}
       />
 
-      <Section title={`Movies - crew (${crew.length})`}
-        body={
-          <List row>
-            {crew.map((crew) => (
-              <Item key={crew.id}>
-                <Tile popular
-                  titleSmall={crew.title}
-                  img={crew.poster_path
-                    ? API_IMG + crew.poster_path
-                    : noProfilePic
-                  } />
-              </Item>
-            ))}
-          </List>
-        }
-      />S
+      <Section movies
+        title={`Movies - crew (${crew.length})`}
+        body={crew.map((crew) => (
+          <Tile poster
+            key={crew.id}
+            img={
+              crew.poster_path
+                ? API_IMG + crew.poster_path
+                : noProfilePic
+            }
+            subtitle={crew.character}
+            title={crew.title}
+            date={crew.release_date}
+            genre={crew.genre_ids} genres={genres}
+            rating={crew.vote_average} votes={crew.vote_count}
+          />
+        ))}
+      />
     </>
   );
 };

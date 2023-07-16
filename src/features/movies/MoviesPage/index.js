@@ -1,7 +1,7 @@
 import { Section } from "../../../components/Section";
 import { Container } from "../../../components/Container";
-import { MoviesList } from "./MoviesList";
 import { NotFound, Loading } from "./styled";
+import { MoviesPopular } from "./MoviesPopular/getMovies";
 
 export const MoviesPage = () => {
   const loading = false;
@@ -22,8 +22,9 @@ export const MoviesPage = () => {
         </>
       ) : (
         <>
-          <Section
-            body={<MoviesList />} />
+          <Section movies
+            title="Popular Movies"
+            body={<MoviesPopular />} />
         </>
       )}
     </Container>
