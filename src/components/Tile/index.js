@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMediaQuery } from 'react-responsive';
 import { Tags } from "../Genre";
 import { Rating } from "../Rating";
 import {
@@ -11,33 +11,22 @@ import {
 } from "./styled";
 
 export const Tile = ({ img, bigposter, poster, smallposter, date, title, from, genre, genres, rating, votes, overview }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 767);
-    };
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   return (
-    <Wrapper bigposter={bigposter} smallposter={smallposter}>
+    <Wrapper bigposter={bigposter} smallposter={smallposter} poster={poster}>
       <Image src={img} poster={poster} smallposter={smallposter} bigposter={bigposter} />
-      <Description smallposter={smallposter} bigposter={bigposter}>
+      <Description smallposter={smallposter} bigposter={bigposter} poster={poster}>
         <Title smallposter={smallposter} bigposter={bigposter}>{title}</Title>
         {date &&
           <Info>
-            <Extras>Date of birth: </Extras>
+            {bigposter && <Extras>Date of birth: </Extras>}
             {date}
           </Info>
         }
         {from &&
           <Info>
-            <Extras>Place of birth: </Extras>
+            {bigposter && <Extras>Place of birth: </Extras>}
             {from}
           </Info>
         }
