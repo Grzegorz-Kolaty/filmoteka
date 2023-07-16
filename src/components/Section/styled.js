@@ -28,14 +28,14 @@ export const Body = styled.div`
 
   ${({ actors }) => actors && css`
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  `}
+  
+    @media(max-width: 767px) {
+      grid-template-columns: auto auto;
+      grid-gap: 16px;
+    };
+  `};
 
   ${({ movies }) => movies && css`
     grid-template-columns: repeat(auto-fill, 324px);
-  `}
-
-  @media(max-width: 767px) {
-    grid-template-columns: auto;
-    grid-gap: 16px;
-  }
+  `};
 `;
