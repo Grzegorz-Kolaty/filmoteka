@@ -1,1 +1,1 @@
-export default "search for";
+export default "search";
