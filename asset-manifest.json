@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/filmoteka/static/js/main.5f113ca8.js",
+    "static/js/787.5da56637.chunk.js": "/filmoteka/static/js/787.5da56637.chunk.js",
+    "static/media/notFound.svg": "/filmoteka/static/media/notFound.d286a671797f1244d0ba26eeaa04cf6f.svg",
+    "static/media/star.svg": "/filmoteka/static/media/star.d2197599d8d1eb8e19053caa50162255.svg",
+    "static/media/noProfilePic.svg": "/filmoteka/static/media/noProfilePic.50f00481c7f7d63eef45a7e5a1177e57.svg",
+    "index.html": "/filmoteka/index.html",
+    "static/media/camera.svg": "/filmoteka/static/media/camera.a3c5c809d3dcf913ce5ced168f4e9614.svg",
+    "static/media/loader.svg": "/filmoteka/static/media/loader.c5f29646f52eed97faa98a9f6f43ce08.svg",
+    "static/media/searchIcon.svg": "/filmoteka/static/media/searchIcon.5aa061ea8ce958db2e2c813d81e21cf7.svg",
+    "main.5f113ca8.js.map": "/filmoteka/static/js/main.5f113ca8.js.map",
+    "787.5da56637.chunk.js.map": "/filmoteka/static/js/787.5da56637.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.5f113ca8.js"
+  ]
+}
