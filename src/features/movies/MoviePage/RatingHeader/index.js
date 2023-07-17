@@ -1,9 +1,9 @@
 import { Rate, Star, Textbox, Wrapper } from "./styled";
 
-export const Rating = ({ rating, votes, header }) => {
+export const RatingHeader = ({ rating, votes }) => {
   console.log(rating);
   return (
-    <Wrapper header={header}>
+    <Wrapper>
       {rating && rating !== 0 ? (
         <Textbox>
           <Star />

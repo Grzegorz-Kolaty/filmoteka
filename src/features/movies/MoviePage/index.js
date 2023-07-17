@@ -22,7 +22,6 @@ export const MoviePage = () => {
   const [movie, setMovie] = useState({});
   const [credits, setCredits] = useState([]);
   const [crew, setCrew] = useState([]);
-  
 
   useEffect(() => {
     const fetchMovieData = async () => {
@@ -33,7 +32,6 @@ export const MoviePage = () => {
         const imagePath = movieResponse.data.backdrop_path;
         setHeaderImage(`${API_IMG}${imagePath}`);
         setMovie(movieResponse.data);
-       
 
         const creditsResponse = await axios.get(
           `${API_URL}/movie/337401/credits?api_key=${API_KEY}&language=en-US`
@@ -73,12 +71,13 @@ export const MoviePage = () => {
     <Container>
       <HeaderWrapper style={{ backgroundImage: `url(${headerImage})` }}>
         <Header title={movie.title} />
-        <Rating rating={movie.vote_average} votes={movie.vote_count} /> {/* Updated Rating component */}
+        <Rating header rating={movie.vote_average} votes={movie.vote_count} />
       </HeaderWrapper>
 
       <Section body={<MovieDetails />} />
 
-      <Section actors
+      <Section
+        actors
         title={`Cast (${credits.length})`}
         body={credits.map((credit) => (
           <Tile
@@ -95,7 +94,8 @@ export const MoviePage = () => {
         ))}
       />
 
-      <Section actors
+      <Section
+        actors
         title={`Crew (${crew.length})`}
         body={crew.map((member) => (
           <Tile

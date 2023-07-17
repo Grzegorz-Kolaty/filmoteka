@@ -1,8 +1,14 @@
-import { styled } from "styled-components";
-import star from "../images/star.svg"
+import styled, { css } from "styled-components";
+import star from "../images/star.svg";
 
 export const Wrapper = styled.div`
   align-self: end;
+  ${({ header }) =>
+    header &&
+    css`
+      align-self: start;
+      padding: 30px;
+    `}
 `;
 
 export const Star = styled.div`
@@ -24,5 +30,5 @@ export const Textbox = styled.div`
 
 export const Rate = styled.span`
   font-weight: bold;
-  color: ${({ theme }) => theme.color.woodsmoke}
+  color: ${({ theme }) => theme.color.woodsmoke};
 `;
