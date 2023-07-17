@@ -29,7 +29,7 @@ export const MovieDetails = () => {
   if (!movie) {
     return <div>Loading data...</div>;
   }
-  // date, title, from, genre, genres, rating, votes, overview
+
   return (
     <Tile
       bigposter

@@ -5,7 +5,7 @@ import { ActorsPage } from "./features/actors/ActorsPage/index";
 import { MoviePage } from "./features/movies/MoviePage/index";
 import { MoviesPage } from "./features/movies/MoviesPage/index";
 import { ActorPage } from "./features/actors/ActorPage/index";
-import { toActors, toActor, toMovie, toMovies } from "./routes";
+import { toActors, toMovies } from "./routes";
 
 export const App = () => {
   return (
@@ -13,14 +13,14 @@ export const App = () => {
       <Navigation />
       <Switch>
         <Container>
-          <Route path={toActors()}>
-            <ActorsPage />
-          </Route>
-          <Route path={toActor()}>
+          <Route path={"/actor"}>
             <ActorPage />
           </Route>
-          <Route path={toMovie()}>
+          <Route path={"/movie"}>
             <MoviePage />
+          </Route>
+          <Route path={toActors()}>
+            <ActorsPage />
           </Route>
           <Route path={toMovies()}>
             <MoviesPage />
