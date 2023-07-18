@@ -15,4 +15,4 @@ export const Rating = ({ rating, votes, header }) => {
       )}
     </Wrapper>
   );
-};
+}
