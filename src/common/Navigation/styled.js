@@ -36,7 +36,8 @@ export const Logo = styled.div`
 export const Icon = styled.img`
   width: 40px;
   height: 40px;
-`;
+
+ `;
 
 export const Title = styled.h1`
   display: flex;
