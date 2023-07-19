@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 
 export const Nav = styled.nav`
   background: ${({ theme }) => theme.color.black};
@@ -37,6 +38,11 @@ export const Icon = styled.img`
   width: 40px;
   height: 40px;
 
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: 22px;
+    height: 22px;
+  }
+
  `;
 
 export const Title = styled.h1`
@@ -63,7 +69,7 @@ export const List = styled.ul`
   margin: 0;
 `;
 
-export const NavigationLink = styled(Link)`
+export const NavigationLink = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,4 +87,10 @@ export const NavigationLink = styled(Link)`
   &:hover {
     border: 2px solid ${({ theme }) => theme.color.white};
   }
+
+  &.active {
+        border:2px solid ${({theme})=> theme.color.black};
+        background:${({ theme }) => theme.color.white};
+        color:${({theme})=> theme.color.black};
+    }
 `; 
