@@ -1,7 +1,16 @@
 import React from "react";
-import { Icon, Title, Nav, List, NavigationLink, Logo, NavContainer, Wrapper } from "./styled";
+import {
+  Icon,
+  Title,
+  Nav,
+  List,
+  NavigationLink,
+  Logo,
+  NavContainer,
+  Wrapper,
+} from "./styled";
 import camera from "../../components/images/camera.svg";
-import Search from "../../features/movies/MoviesPage/Search";
+import Search from "../../features/Search";
 
 const Navigation = () => {
   return (
