@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Search } from "../../../../components/images/searchIcon.svg";
+import { ReactComponent as Search } from "../../components/images/searchIcon.svg";
 
 export const SearchWrapper = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ export const Input = styled.input`
   outline: 0;
   padding: 0px;
   flex-grow: 1;
-  padding-left: 10px; 
+  padding-left: 10px;
 `;
 
 export const SearchIcon = styled(Search)`
