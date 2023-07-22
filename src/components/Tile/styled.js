@@ -2,10 +2,9 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   align-items: stretch;
-  align-content: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 40px;
   padding: 16px;
   border-radius: 5px;
@@ -30,7 +29,6 @@ export const Wrapper = styled.div`
   ${({ smallposter }) => smallposter && css`
     gap: 12px;
     width: auto;
-    align-content: flex-start;
 
     @media(max-width: 767px) {
       gap: 8px;
@@ -39,29 +37,13 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: auto;
-  height: auto;
   border-radius: 5px;
+  width: 100%;
 
   @media(max-width: 767px) {
     align-self: start;
     justify-self: center;
   };
-
-  ${({ bigposter }) => bigposter && css`
-    height: 564px;
-    width: 399px;
-  `};
-
-  ${({ poster }) => poster && css`
-    height: 434px;
-    width: 292px;
-  `};
-
-  ${({ smallposter }) => smallposter && css`
-    width: 100%;
-  `};
-
 `;
 
 export const Title = styled.div`

@@ -11,6 +11,7 @@ export const Nav = styled.nav`
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto;
+  align-items: center;
   margin: 0 auto;
   max-width: 1368px;
 
@@ -64,7 +65,7 @@ export const List = styled.ul`
   align-items: center;
   gap: 15px;
   color: white;
-  height: 50px;
+  height: 48px;
   padding: 0;
   margin: 0;
 `;
@@ -81,7 +82,7 @@ export const NavigationLink = styled(NavLink)`
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
-  padding: 10px;
+  padding: 15px;
   border: 2px solid transparent;
 
   &:hover {
@@ -89,8 +90,8 @@ export const NavigationLink = styled(NavLink)`
   }
 
   &.active {
-        border:2px solid ${({theme})=> theme.color.black};
-        background:${({ theme }) => theme.color.white};
-        color:${({theme})=> theme.color.black};
+        border: 2px solid ${({ theme }) => theme.color.black};
+        background: ${({ theme }) => theme.color.white};
+        color: ${({ theme }) => theme.color.black};
     }
 `; 
