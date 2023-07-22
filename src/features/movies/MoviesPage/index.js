@@ -1,19 +1,43 @@
-import React from "react";
-import { Section } from "../../../components/Section";
-import { Container } from "../../../components/Container";
-import { Tile } from "../../../components/Tile";
+import React, { useState, useEffect } from "react";
 import { useGenres } from "../../../components/Genre/getGenres";
+import { Tile } from "../../../components/Tile";
 import useMovieSearch from "../../Search/useMovieSearch";
-import { NotFound } from "./styled";
+import { Container } from "../../../components/Container";
+import { Section } from "../../../components/Section";
+import { Loading, NotFound } from "./styled";
+
+const useInitialLoading = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return isLoading;
+};
 
 export const MoviesPage = () => {
-  const { movies, loading } = useMovieSearch();
+  const { movies } = useMovieSearch();
   const { genres } = useGenres();
+  const { error } = useState();
+  const isLoading = useInitialLoading();
+
+  if (isLoading) {
+    return (
+      <Container>
+        <Section title="Searching for results" body={<Loading />} />
+      </Container>
+    );
+  }
 
   return (
     <Container>
-      {loading ? (
-        <div>Loading...</div>
+      {error ? (
+        <div>Error...</div>
       ) : movies.length === 0 ? (
         <>
           <Section title="Sorry, there are no results" body={<NotFound />} />
