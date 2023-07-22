@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     css`
       align-self: start;
       padding: 30px;
+      margin-left:40px;
     `}
 `;
 

@@ -70,7 +70,7 @@ export const MoviePage = () => {
   return (
     <Container>
       <HeaderWrapper style={{ backgroundImage: `url(${headerImage})` }}>
-        <Header title={movie.title} />
+        <Header  title={movie.title} />
         <Rating header rating={movie.vote_average} votes={movie.vote_count} />
       </HeaderWrapper>
 

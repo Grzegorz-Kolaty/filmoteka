@@ -1,11 +1,9 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-
 export const Nav = styled.nav`
   background: ${({ theme }) => theme.color.black};
   padding: 23px;
-
 `;
 
 export const Wrapper = styled.div`
@@ -18,7 +16,6 @@ export const Wrapper = styled.div`
     grid-template-columns: auto;
     grid-gap: 24px;
   }
-
 `;
 
 export const NavContainer = styled.div`
@@ -32,18 +29,17 @@ export const Logo = styled.div`
   justify-content: center;
   align-items: center;
   gap: 20px;
- `;
+`;
 
 export const Icon = styled.img`
   width: 40px;
   height: 40px;
 
   @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
-    width: 22px;
-    height: 22px;
+    width: 17px;
+    height: 17px;
   }
-
- `;
+`;
 
 export const Title = styled.h1`
   display: flex;
@@ -55,6 +51,18 @@ export const Title = styled.h1`
   text-transform: capitalize;
   letter-spacing: -0.5px;
   color: ${({ theme }) => theme.color.white};
+
+  @media (max-width: ${({ theme }) => theme.breakpoint.mobileMax}px) {
+    width: 95px;
+    height: 17px;
+    font-family: Poppins;
+font-size: 13px;
+font-weight: 500;
+line-height: 17px;
+letter-spacing: -0.5px;
+text-align: left;
+
+  }
 `;
 
 export const List = styled.ul`
@@ -89,8 +97,8 @@ export const NavigationLink = styled(NavLink)`
   }
 
   &.active {
-        border:2px solid ${({theme})=> theme.color.black};
-        background:${({ theme }) => theme.color.white};
-        color:${({theme})=> theme.color.black};
-    }
-`; 
+    border: 2px solid ${({ theme }) => theme.color.black};
+    background: ${({ theme }) => theme.color.white};
+    color: ${({ theme }) => theme.color.black};
+  }
+`;
