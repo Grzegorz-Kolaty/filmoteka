@@ -4,11 +4,12 @@ import { Container } from "../../../components/Container";
 import { Header } from "../../../components/Header";
 import { Section } from "../../../components/Section";
 import { Rating } from "../../../components/Rating";
-import { Loading, NotFound } from "../MoviesPage/styled";
+import { NotFound } from "../MoviesPage/styled";
 import { HeaderWrapper } from "./styled";
 import { MovieDetails } from "../../movies/MoviesPage/MovieTile";
 import { Tile } from "../../../components/Tile";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
+import { Loader } from "../../../common/Loader";
 
 const API_URL = "https://api.themoviedb.org/3";
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
@@ -53,9 +54,7 @@ export const MoviePage = () => {
 
   if (isLoading) {
     return (
-      <Container>
-        <Section title="Searching for results" body={<Loading />} />
-      </Container>
+      <Loader />
     );
   }
 

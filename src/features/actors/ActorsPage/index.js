@@ -3,6 +3,7 @@ import { Section } from "../../../components/Section";
 import useActorList from "./useActorsList";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { Tile } from "../../../components/Tile";
+import { Loader } from "../../../common/Loader";
 
 export const ActorsPage = () => {
   const actors = useActorList();
@@ -13,12 +14,8 @@ export const ActorsPage = () => {
   return (
     <Container>
       {actors.length <= 0
-        ?
-        <Section>
-          <div>Loading</div>
-        </Section>
-        :
-        <Section actors
+        ? <Section body={<Loader />} />
+        : <Section actors
           title="Popular Actors"
           body={
             actors.map((actor) => (

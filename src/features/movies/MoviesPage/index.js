@@ -5,6 +5,7 @@ import { Tile } from "../../../components/Tile";
 import { useGenres } from "../../../components/Genre/getGenres";
 import useMovieSearch from "../../Search/useMovieSearch";
 import { NotFound } from "./styled";
+import { Loader } from "../../../common/Loader";
 
 export const MoviesPage = () => {
   const { movies, loading } = useMovieSearch();
@@ -13,7 +14,7 @@ export const MoviesPage = () => {
   return (
     <Container>
       {loading ? (
-        <div>Loading...</div>
+        <Loader />
       ) : movies.length === 0 ? (
         <>
           <Section title="Sorry, there are no results" body={<NotFound />} />
