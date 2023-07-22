@@ -31,7 +31,7 @@ export const Body = styled.div`
     text-align: center;
 
     @media(max-width: 767px) {
-      grid-template-columns: auto auto;
+      grid-template-columns: repeat(auto-fill, minmax(136px, auto));
       grid-gap: 16px;
     };
   `};

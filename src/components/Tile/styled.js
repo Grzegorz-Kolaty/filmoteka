@@ -28,7 +28,13 @@ export const Wrapper = styled.div`
   `}
 
   ${({ smallposter }) => smallposter && css`
+    gap: 12px;
+    width: auto;
     align-content: flex-start;
+
+    @media(max-width: 767px) {
+      gap: 8px;
+    };
   `};
 `;
 
@@ -38,8 +44,6 @@ export const Image = styled.img`
   border-radius: 5px;
 
   @media(max-width: 767px) {
-    width: 114px;
-    height: 169px;
     align-self: start;
     justify-self: center;
   };
@@ -55,8 +59,7 @@ export const Image = styled.img`
   `};
 
   ${({ smallposter }) => smallposter && css`
-    width: 177px;
-    height: 264px;
+    width: 100%;
   `};
 
 `;
