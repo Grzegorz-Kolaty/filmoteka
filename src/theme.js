@@ -15,5 +15,6 @@ export const theme = {
     smallScreen: 991,
     mobileMax: 767,
     mobileMin: 320,
+ 
   },
 };
