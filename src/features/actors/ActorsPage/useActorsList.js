@@ -28,8 +28,6 @@ const ActorList = () => {
     fetchActors();
   }, []);
 
-  console.log(actors);
-
   return actors;
 };
 

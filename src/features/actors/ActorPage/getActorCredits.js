@@ -4,6 +4,7 @@ import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { Section } from '../../../components/Section';
 import { Tile } from '../../../components/Tile';
 import { useGenres } from '../../../components/Genre/getGenres';
+import { nanoid } from 'nanoid';
 
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
 const API_URL = "https://api.themoviedb.org/3/person/1225/movie_credits";
@@ -13,15 +14,15 @@ const ActorCredits = () => {
   const [credits, setCredits] = useState([]);
   const [crew, setCrew] = useState([]);
   const { genres } = useGenres();
+  let id = nanoid();
 
   useEffect(() => {
     const fetchActorCredits = () => {
-      axios
-        .get(API_URL, {
-          params: {
-            api_key: API_KEY,
-          },
-        })
+      axios.get(API_URL, {
+        params: {
+          api_key: API_KEY,
+        },
+      })
         .then((response) => {
           setCredits(response.data.cast);
           setCrew(response.data.crew);
@@ -34,15 +35,13 @@ const ActorCredits = () => {
     fetchActorCredits();
   }, []);
 
-  console.log(credits);
-
   return (
     <>
       <Section movies
         title={`Movies - cast (${credits.length})`}
         body={credits.map((credit) => (
           <Tile poster
-            key={credit.id}
+            key={id}
             img={
               credit.poster_path
                 ? API_IMG + credit.poster_path
@@ -61,7 +60,7 @@ const ActorCredits = () => {
         title={`Movies - crew (${crew.length})`}
         body={crew.map((crew) => (
           <Tile poster
-            key={crew.id}
+            key={id}
             img={
               crew.poster_path
                 ? API_IMG + crew.poster_path

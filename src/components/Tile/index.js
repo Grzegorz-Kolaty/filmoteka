@@ -15,7 +15,7 @@ export const Tile = ({ img, bigposter, poster, smallposter, date, title, from, g
 
   return (
     <Wrapper bigposter={bigposter} smallposter={smallposter} poster={poster}>
-      <Image src={img} poster={poster} smallposter={smallposter} bigposter={bigposter} />
+      <Image src={img} />
       <Description smallposter={smallposter} bigposter={bigposter} poster={poster}>
         <Title smallposter={smallposter} bigposter={bigposter}>{title}</Title>
         {date &&

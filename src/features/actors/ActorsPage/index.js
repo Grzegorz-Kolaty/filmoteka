@@ -4,12 +4,12 @@ import useActorList from "./useActorsList";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { Tile } from "../../../components/Tile";
 import { Loader } from "../../../common/Loader";
+import { nanoid } from 'nanoid';
 
 export const ActorsPage = () => {
   const actors = useActorList();
   const API_IMG = "https://image.tmdb.org/t/p/w185";
-
-  console.log(actors.length);
+  let id = nanoid();
 
   return (
     <Container>
@@ -20,7 +20,7 @@ export const ActorsPage = () => {
           body={
             actors.map((actor) => (
               <Tile smallposter
-                key={actor.id}
+                key={id}
                 title={actor.name}
                 img={actor.profile_path
                   ? API_IMG + actor.profile_path

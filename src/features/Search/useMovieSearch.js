@@ -8,51 +8,32 @@ const API_URL = "https://api.themoviedb.org/3/search/movie";
 
 const useMovieSearch = () => {
   const query = useQueryParameter(searchQueryParamName);
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [searchedMovies, setSearchedMovies] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        setLoading(true);
+        const response = await axios.get(API_URL, {
+          params: {
+            api_key: API_KEY,
+            language: "en-US",
+            query: query,
+            page: 1,
+          },
+        });
 
-        if (query) {
-          const response = await axios.get(API_URL, {
-            params: {
-              api_key: API_KEY,
-              language: "en-US",
-              query: query,
-              page: 1,
-            },
-          });
-
-          setMovies(response.data.results);
-        } else {
-          const response = await axios.get(
-            "https://api.themoviedb.org/3/movie/popular",
-            {
-              params: {
-                api_key: API_KEY,
-                language: "en-US",
-                page: 1,
-              },
-            }
-          );
-
-          setMovies(response.data.results);
-        }
-
-        setLoading(false);
+        setTimeout(() => {
+          setSearchedMovies(response.data.results);
+        }, 1000);
       } catch (error) {
         console.error(error);
-        setLoading(false);
       }
     };
 
     fetchMovies();
   }, [query]);
 
-  return { movies, loading };
+  return searchedMovies;
 };
 
 export default useMovieSearch;

@@ -1,36 +1,36 @@
-import React from "react";
 import { Section } from "../../../components/Section";
 import { Container } from "../../../components/Container";
 import { Tile } from "../../../components/Tile";
 import { useGenres } from "../../../components/Genre/getGenres";
 import useMovieSearch from "../../Search/useMovieSearch";
-import { NotFound } from "./styled";
 import { Loader } from "../../../common/Loader";
+import usePopularMovies from "./MoviesPopular/usePopularMovies";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import noProfilePic from "../../../components/images/noProfilePic.svg";
+import { nanoid } from 'nanoid';
 
 export const MoviesPage = () => {
-  const { movies, loading } = useMovieSearch();
+  const popularMovies = usePopularMovies();
+  const searchedMovies = useMovieSearch();
   const { genres } = useGenres();
+  const location = useLocation();
+  let id = nanoid();
+
+  let moviesToDisplay = location.search ? searchedMovies : popularMovies;
 
   return (
     <Container>
-      {loading ? (
-        <Loader />
-      ) : movies.length === 0 ? (
-        <>
-          <Section title="Sorry, there are no results" body={<NotFound />} />
-        </>
-      ) : (
-        <Section
-          movies
+      {moviesToDisplay.length <= 0
+        ? <Section body={<Loader />} />
+        : <Section movies
           title="Popular Movies"
-          body={movies.map((movie) => (
-            <Tile
-              poster
-              key={movie.id}
+          body={moviesToDisplay.map((movie) => (
+            <Tile poster
+              key={id}
               img={
                 movie.poster_path
                   ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                  : ""
+                  : noProfilePic
               }
               title={movie.title}
               date={movie.release_date}
@@ -42,7 +42,7 @@ export const MoviesPage = () => {
             />
           ))}
         />
-      )}
+      }
     </Container>
   );
 };

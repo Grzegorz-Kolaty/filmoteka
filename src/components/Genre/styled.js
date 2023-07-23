@@ -14,4 +14,12 @@ export const Tag = styled.div`
     background-color: ${({ theme }) => theme.color.mystic};
     border-radius: 5px;
     white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.4;
+
+    @media(max-width: 900px) {
+    padding: 4px 8px;
+    font-size: 10px;
+    line-height: 1.1;
+  }
 `;

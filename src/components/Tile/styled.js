@@ -4,46 +4,48 @@ export const Wrapper = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 40px;
   padding: 16px;
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.50);
   background: ${({ theme }) => theme.color.white};
 
-  @media(max-width: 767px) {
-    flex-flow: row wrap;
-    gap: 16px;
-    padding: 16px;
-  };
-
   ${({ bigposter }) => bigposter && css`
     flex-flow: row nowrap;
     padding: 40px;
-  `}
+
+    @media(max-width: 900px) {
+      flex-flow: row wrap;
+      padding: 16px;
+      gap: 16px;
+    };
+  `};
 
   ${({ poster }) => poster && css`
     gap: 16px;
-  `}
+    align-self: baseline;
+    height: 100%;
+
+    @media(max-width: 900px) {
+      align-self: flex-start;
+      flex-flow: row nowrap;
+    };
+  `};
 
   ${({ smallposter }) => smallposter && css`
     gap: 12px;
-    width: auto;
 
-    @media(max-width: 767px) {
+    @media(max-width: 900px) {
       gap: 8px;
+      padding: 8px 8px 16px 8px;
     };
   `};
 `;
 
 export const Image = styled.img`
   border-radius: 5px;
-  width: 100%;
-
-  @media(max-width: 767px) {
-    align-self: start;
-    justify-self: center;
-  };
+  object-fit: fill;
 `;
 
 export const Title = styled.div`
@@ -55,7 +57,7 @@ export const Title = styled.div`
     font-size: 36px;
   `}
   
-  @media(max-width: 767px) {
+  @media(max-width: 900px) {
     font-size: 16px;
   };
 
@@ -72,23 +74,23 @@ export const Description = styled.div`
   grid-gap: 24px;
 
   ${({ bigposter }) => bigposter && css`
+    width: 35%;
     font-size: 18px;
     grid-gap: 8px;
   `};
 
   ${({ poster }) => poster && css`
     grid-gap: 8px;
-  `}
+
+    @media(max-width: 900px) {
+      grid-template-rows: auto auto auto auto 1fr;    
+    };
+  `};
 
   ${({ smallposter }) => smallposter && css`
     grid-template-rows: auto auto;
     grid-gap: 0px;
   `};
-
-  @media(max-width: 767px) {
-    width: 50%;
-    font-size: 12px;
-  };
 `;
 
 export const Info = styled.div`
@@ -99,7 +101,7 @@ export const Info = styled.div`
     font-size: 20px;
   `};
 
-  @media(max-width: 767px) {
+  @media(max-width: 900px) {
     font-size: 14px;
   };
 `;
