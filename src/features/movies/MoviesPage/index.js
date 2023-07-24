@@ -7,14 +7,12 @@ import { Loader } from "../../../common/Loader";
 import usePopularMovies from "./MoviesPopular/usePopularMovies";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
-import { nanoid } from 'nanoid';
 
 export const MoviesPage = () => {
   const popularMovies = usePopularMovies();
   const searchedMovies = useMovieSearch();
   const { genres } = useGenres();
   const location = useLocation();
-  let id = nanoid();
 
   let moviesToDisplay = location.search ? searchedMovies : popularMovies;
 
@@ -26,7 +24,7 @@ export const MoviesPage = () => {
           title="Popular Movies"
           body={moviesToDisplay.map((movie) => (
             <Tile poster
-              key={id}
+              key={movie.id}
               img={
                 movie.poster_path
                   ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`

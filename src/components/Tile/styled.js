@@ -12,11 +12,11 @@ export const Wrapper = styled.div`
   background: ${({ theme }) => theme.color.white};
 
   ${({ bigposter }) => bigposter && css`
-    flex-flow: row nowrap;
     padding: 40px;
+    flex-flow: row wrap;
+
 
     @media(max-width: 900px) {
-      flex-flow: row wrap;
       padding: 16px;
       gap: 16px;
     };
@@ -24,11 +24,12 @@ export const Wrapper = styled.div`
 
   ${({ poster }) => poster && css`
     gap: 16px;
-    align-self: baseline;
+    align-self: flex-start;
     height: 100%;
 
     @media(max-width: 900px) {
-      align-self: flex-start;
+      align-self: normal;
+      justify-self: normal;
       flex-flow: row nowrap;
     };
   `};
@@ -74,7 +75,7 @@ export const Description = styled.div`
   grid-gap: 24px;
 
   ${({ bigposter }) => bigposter && css`
-    width: 35%;
+    width: 40%;
     font-size: 18px;
     grid-gap: 8px;
   `};

@@ -5,10 +5,10 @@ export const Sections = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   gap: 24px;
-  padding: 56px 4%;
+  padding: 56px 3%;
 
   @media(max-width: 900px) {
-    padding: 24px 4%;
+    padding: 24px 16px;
     gap: 12px;
   };
 `;
@@ -26,7 +26,6 @@ export const Title = styled.h2`
 
 export const Body = styled.div`
   display: grid;
-  grid-template-columns: auto;
   grid-gap: 24px;
   background-color: transparent;
 
@@ -35,8 +34,9 @@ export const Body = styled.div`
     };
 
  ${({ actor }) => actor && css`
-    grid-template-rows: 564px;
- `}
+    grid-template-rows: auto;
+    grid-template-columns: minmax(auto, 564px)
+ `};
 
   ${({ actors }) => actors && css`
     grid-template-columns: repeat(auto-fill, 208px);
@@ -51,11 +51,12 @@ export const Body = styled.div`
   `};
 
   ${({ movies }) => movies && css`
-    grid-template-columns: repeat(auto-fill, 324px);
+    grid-template-columns: repeat(auto-fit, 324px);
+    grid-auto-rows: max-content;
 
     @media(max-width: 900px) {
-      grid-template-columns: auto;
-      grid-auto-rows: 201px;
+      grid-template-columns: 100%;
+      grid-auto-rows: 256px;
       grid-gap: 16px;
     };
   `};
