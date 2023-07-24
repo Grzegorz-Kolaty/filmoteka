@@ -16,12 +16,11 @@ const ActorCredits = () => {
 
   useEffect(() => {
     const fetchActorCredits = () => {
-      axios
-        .get(API_URL, {
-          params: {
-            api_key: API_KEY,
-          },
-        })
+      axios.get(API_URL, {
+        params: {
+          api_key: API_KEY,
+        },
+      })
         .then((response) => {
           setCredits(response.data.cast);
           setCrew(response.data.crew);
@@ -33,8 +32,6 @@ const ActorCredits = () => {
 
     fetchActorCredits();
   }, []);
-
-  console.log(credits);
 
   return (
     <>

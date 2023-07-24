@@ -2,9 +2,8 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   align-items: stretch;
-  align-content: flex-start;
   justify-content: center;
   gap: 40px;
   padding: 16px;
@@ -12,53 +11,41 @@ export const Wrapper = styled.div`
   box-shadow: 0px 4px 12px 0px rgba(186, 199, 213, 0.50);
   background: ${({ theme }) => theme.color.white};
 
-  @media(max-width: 767px) {
-    flex-flow: row wrap;
-    gap: 16px;
-    padding: 16px;
-  };
-
   ${({ bigposter }) => bigposter && css`
-    flex-flow: row nowrap;
     padding: 40px;
-  `}
+    flex-flow: row nowrap;
+    height: 564px;
+    
+    @media(max-width: 900px) {
+      padding: 16px;
+      gap: 16px;
+    };
+  `};
 
   ${({ poster }) => poster && css`
     gap: 16px;
-  `}
+    align-self: flex-start;
+    height: 100%;
+
+    @media(max-width: 900px) {
+      align-self: normal;
+      justify-self: normal;
+      flex-flow: row nowrap;
+    };
+  `};
 
   ${({ smallposter }) => smallposter && css`
-    align-content: flex-start;
+    gap: 12px;
+
+    @media(max-width: 900px) {
+      gap: 8px;
+      padding: 8px 8px 16px 8px;
+    };
   `};
 `;
 
 export const Image = styled.img`
-  width: auto;
-  height: auto;
   border-radius: 5px;
-
-  @media(max-width: 767px) {
-    width: 114px;
-    height: 169px;
-    align-self: start;
-    justify-self: center;
-  };
-
-  ${({ bigposter }) => bigposter && css`
-    height: 564px;
-    width: 399px;
-  `};
-
-  ${({ poster }) => poster && css`
-    height: 434px;
-    width: 292px;
-  `};
-
-  ${({ smallposter }) => smallposter && css`
-    width: 177px;
-    height: 264px;
-  `};
-
 `;
 
 export const Title = styled.div`
@@ -70,7 +57,7 @@ export const Title = styled.div`
     font-size: 36px;
   `}
   
-  @media(max-width: 767px) {
+  @media(max-width: 900px) {
     font-size: 16px;
   };
 
@@ -93,17 +80,16 @@ export const Description = styled.div`
 
   ${({ poster }) => poster && css`
     grid-gap: 8px;
-  `}
+
+    @media(max-width: 900px) {
+      grid-template-rows: auto auto auto auto 1fr;    
+    };
+  `};
 
   ${({ smallposter }) => smallposter && css`
     grid-template-rows: auto auto;
     grid-gap: 0px;
   `};
-
-  @media(max-width: 767px) {
-    width: 50%;
-    font-size: 12px;
-  };
 `;
 
 export const Info = styled.div`
@@ -114,7 +100,7 @@ export const Info = styled.div`
     font-size: 20px;
   `};
 
-  @media(max-width: 767px) {
+  @media(max-width: 900px) {
     font-size: 14px;
   };
 `;

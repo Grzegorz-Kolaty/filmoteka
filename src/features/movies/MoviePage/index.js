@@ -4,11 +4,13 @@ import { Container } from "../../../components/Container";
 import { Header } from "../../../components/Header";
 import { Section } from "../../../components/Section";
 import { Rating } from "../../../components/Rating";
-import { Loading, NotFound } from "../MoviesPage/styled";
+import { NotFound } from "../MoviesPage/styled";
 import { HeaderWrapper } from "./styled";
 import { MovieDetails } from "../../movies/MoviesPage/MovieTile";
 import { Tile } from "../../../components/Tile";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
+import { Loader } from "../../../common/Loader";
+import { nanoid } from 'nanoid';
 
 const API_URL = "https://api.themoviedb.org/3";
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
@@ -22,6 +24,8 @@ export const MoviePage = () => {
   const [movie, setMovie] = useState({});
   const [credits, setCredits] = useState([]);
   const [crew, setCrew] = useState([]);
+  let id = nanoid();
+
 
   useEffect(() => {
     const fetchMovieData = async () => {
@@ -53,9 +57,7 @@ export const MoviePage = () => {
 
   if (isLoading) {
     return (
-      <Container>
-        <Section title="Searching for results" body={<Loading />} />
-      </Container>
+      <Loader />
     );
   }
 
@@ -82,7 +84,7 @@ export const MoviePage = () => {
         body={credits.map((credit) => (
           <Tile
             smallposter
-            key={credit.id}
+            key={id}
             img={
               credit.profile_path
                 ? `${API_PIC}${credit.profile_path}`
@@ -99,7 +101,7 @@ export const MoviePage = () => {
         title={`Crew (${crew.length})`}
         body={crew.map((member) => (
           <Tile
-            key={member.id}
+            key={id}
             img={
               member.profile_path
                 ? `${API_PIC}${member.profile_path}`
