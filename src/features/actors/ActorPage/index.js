@@ -14,7 +14,7 @@ export const ActorPage = () => {
 
   return (
     <Container>
-      <Section actor
+      <Section
         body={
           <Tile bigposter
             key={profile.id}

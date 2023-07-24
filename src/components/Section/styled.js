@@ -33,11 +33,6 @@ export const Body = styled.div`
       grid-gap: 16px;
     };
 
- ${({ actor }) => actor && css`
-    grid-template-rows: auto;
-    grid-template-columns: minmax(auto, 564px)
- `};
-
   ${({ actors }) => actors && css`
     grid-template-columns: repeat(auto-fill, 208px);
     grid-auto-rows: minmax(339px, auto);

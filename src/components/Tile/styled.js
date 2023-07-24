@@ -13,9 +13,9 @@ export const Wrapper = styled.div`
 
   ${({ bigposter }) => bigposter && css`
     padding: 40px;
-    flex-flow: row wrap;
-
-
+    flex-flow: row nowrap;
+    height: 564px;
+    
     @media(max-width: 900px) {
       padding: 16px;
       gap: 16px;
@@ -46,7 +46,6 @@ export const Wrapper = styled.div`
 
 export const Image = styled.img`
   border-radius: 5px;
-  object-fit: fill;
 `;
 
 export const Title = styled.div`
@@ -75,7 +74,6 @@ export const Description = styled.div`
   grid-gap: 24px;
 
   ${({ bigposter }) => bigposter && css`
-    width: 40%;
     font-size: 18px;
     grid-gap: 8px;
   `};
