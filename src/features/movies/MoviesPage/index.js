@@ -21,7 +21,6 @@ export const MoviesPage = () => {
   const loading = moviesToDisplay?.loading || false;
   const error = moviesToDisplay?.error || false;
 
-  // Sprawdzenie, czy dane są w trakcie ładowania lub wystąpił błąd
   if (loading) {
     return (
       <Container>
@@ -38,7 +37,6 @@ export const MoviesPage = () => {
     );
   }
 
-  // Jeśli dane są załadowane poprawnie, renderujemy sekcję z filmami
   return (
     <Container>
       {movies.length === 0 ? (
