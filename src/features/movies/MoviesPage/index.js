@@ -1,3 +1,4 @@
+import React from "react";
 import { Section } from "../../../components/Section";
 import { Container } from "../../../components/Container";
 import { Tile } from "../../../components/Tile";
@@ -7,6 +8,7 @@ import { Loader } from "../../../common/Loader";
 import usePopularMovies from "./MoviesPopular/usePopularMovies";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
+import { NotFound } from "./styled";
 
 export const MoviesPage = () => {
   const popularMovies = usePopularMovies();
@@ -14,16 +16,40 @@ export const MoviesPage = () => {
   const { genres } = useGenres();
   const location = useLocation();
 
-  let moviesToDisplay = location.search ? searchedMovies : popularMovies;
+  const moviesToDisplay = location.search ? searchedMovies : popularMovies;
+  const movies = moviesToDisplay?.movies || [];
+  const loading = moviesToDisplay?.loading || false;
+  const error = moviesToDisplay?.error || false;
 
+  // Sprawdzenie, czy dane są w trakcie ładowania lub wystąpił błąd
+  if (loading) {
+    return (
+      <Container>
+        <Section body={<Loader />} />
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container>
+        <div>Error...</div>
+      </Container>
+    );
+  }
+
+  // Jeśli dane są załadowane poprawnie, renderujemy sekcję z filmami
   return (
     <Container>
-      {moviesToDisplay.length <= 0
-        ? <Section body={<Loader />} />
-        : <Section movies
+      {movies.length === 0 ? (
+        <Section title="Sorry, there are no results" body={<NotFound />} />
+      ) : (
+        <Section
+          movies
           title="Popular Movies"
-          body={moviesToDisplay.map((movie) => (
-            <Tile poster
+          body={movies.map((movie) => (
+            <Tile
+              poster
               key={movie.id}
               img={
                 movie.poster_path
@@ -40,7 +66,7 @@ export const MoviesPage = () => {
             />
           ))}
         />
-      }
+      )}
     </Container>
   );
 };
