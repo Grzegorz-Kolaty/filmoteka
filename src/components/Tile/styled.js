@@ -13,10 +13,11 @@ export const Wrapper = styled.div`
 
   ${({ bigposter }) => bigposter && css`
     padding: 40px;
+    justify-content: flex-start;
     flex-flow: row nowrap;
-    height: 564px;
     
     @media(max-width: 900px) {
+      flex-flow: row wrap;
       padding: 16px;
       gap: 16px;
     };
@@ -24,17 +25,15 @@ export const Wrapper = styled.div`
 
   ${({ poster }) => poster && css`
     gap: 16px;
-    align-self: flex-start;
-    height: 100%;
+    justify-content: flex-start;
 
     @media(max-width: 900px) {
-      align-self: normal;
-      justify-self: normal;
       flex-flow: row nowrap;
     };
   `};
 
   ${({ smallposter }) => smallposter && css`
+    justify-content: flex-start;
     gap: 12px;
 
     @media(max-width: 900px) {
@@ -46,6 +45,10 @@ export const Wrapper = styled.div`
 
 export const Image = styled.img`
   border-radius: 5px;
+
+  ${({ bigposter }) => bigposter && css`
+  width: 30%;
+  `}
 `;
 
 export const Title = styled.div`
@@ -67,29 +70,25 @@ export const Title = styled.div`
 `;
 
 export const Description = styled.div`
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto auto auto 1fr;
-  grid-gap: 24px;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 16px;
 
   ${({ bigposter }) => bigposter && css`
+    width: 60%;
+    gap: 24px;
     font-size: 18px;
-    grid-gap: 8px;
-  `};
-
-  ${({ poster }) => poster && css`
-    grid-gap: 8px;
 
     @media(max-width: 900px) {
-      grid-template-rows: auto auto auto auto 1fr;    
+      gap: 16px;
     };
   `};
 
-  ${({ smallposter }) => smallposter && css`
-    grid-template-rows: auto auto;
-    grid-gap: 0px;
+  ${({ poster }) => poster && css`
   `};
+`;
+export const WrapperExtras = styled.div`
+  gap: 8px;
 `;
 
 export const Info = styled.div`
@@ -107,4 +106,7 @@ export const Info = styled.div`
 
 export const Extras = styled.span`
   color: ${({ theme }) => theme.color.stormGray};
+`;
+
+export const Overview = styled.div`
 `;

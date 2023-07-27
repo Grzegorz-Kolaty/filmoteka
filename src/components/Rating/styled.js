@@ -3,7 +3,8 @@ import star from "../images/star.svg";
 
 export const Wrapper = styled.div`
   white-space: nowrap;
-  align-self: flex-end;
+  align-self: flex-start;
+  justify-self: flex-end;
   ${({ header }) => header && css`
       align-self: start;
       padding: 30px;
