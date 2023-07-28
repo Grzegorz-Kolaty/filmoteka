@@ -78,8 +78,7 @@ export const MoviePage = () => {
 
       <Section body={<MovieDetails />} />
 
-      <Section
-        actors
+      <Section actors
         title={`Cast (${credits.length})`}
         body={credits.map((credit) => (
           <Tile
@@ -96,11 +95,10 @@ export const MoviePage = () => {
         ))}
       />
 
-      <Section
-        actors
+      <Section actors
         title={`Crew (${crew.length})`}
         body={crew.map((member) => (
-          <Tile
+          <Tile smallposter
             key={id}
             img={
               member.profile_path
