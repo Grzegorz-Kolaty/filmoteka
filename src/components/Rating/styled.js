@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
     header &&
     css`
       align-items: flex-start;
+
       padding: 30px;
     `}
 

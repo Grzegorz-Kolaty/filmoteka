@@ -1,14 +1,17 @@
 import React from "react";
 import { SearchWrapper, Input, SearchIcon } from "./styled";
-import searchQueryParamName from "../searchQueryParamName";
 import {
   useQueryParameter,
   useReplaceQueryParameter,
 } from "../queryParameters";
+import { useLocation } from "react-router-dom";
+
+const searchQueryParamName = "search";
 
 const Search = () => {
   const query = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter();
+  const location = useLocation();
 
   const onInputChange = ({ target }) => {
     replaceQueryParameter({
@@ -17,11 +20,16 @@ const Search = () => {
     });
   };
 
+  // Sprawdź, czy jesteś na stronie aktorów i ustaw odpowiednią nazwę wyszukiwania
+  const placeholderText = location.pathname.includes("/actors")
+    ? "Search for actors..."
+    : "Search for movies...";
+
   return (
     <SearchWrapper>
       <SearchIcon />
       <Input
-        placeholder="Search for movies..."
+        placeholder={placeholderText}
         type="text"
         value={query || ""}
         onChange={onInputChange}
