@@ -106,7 +106,7 @@ export const Votes = styled.span`
     header &&
     css`
       position: absolute;
-      top: 79.67%;
+      top: 80.67%;
       line-height: 59%;
       display: flex;
       align-items: center;
