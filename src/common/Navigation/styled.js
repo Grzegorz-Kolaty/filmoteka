@@ -6,6 +6,7 @@ export const Nav = styled.nav`
   background: ${({ theme }) => theme.color.black};
 `;
 
+
 export const Wrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
