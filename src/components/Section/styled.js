@@ -26,6 +26,7 @@ export const Title = styled.h2`
 
 export const Body = styled.div`
   display: grid;
+  justify-content: space-around;
   grid-gap: 24px;
   background-color: transparent;
 
