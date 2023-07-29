@@ -4,7 +4,7 @@ import axios from "axios";
 const API_KEY = "991805bb8d078db21dd78fe533903f2b";
 const API_URL = "https://api.themoviedb.org/3/person/popular";
 
-const useActorList = () => {
+const useActorList = (currentPage) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [actors, setActors] = useState([]);
@@ -15,14 +15,15 @@ const useActorList = () => {
         const response = await axios.get(API_URL, {
           params: {
             api_key: API_KEY,
-            page: 1,
+            page: currentPage,
           },
         });
+        setLoading(true);
 
         const timer = setTimeout(() => {
           setActors(response.data.results);
           setLoading(false);
-        }, 2000);
+        }, 1000);
 
         return () => clearTimeout(timer);
       } catch (error) {
@@ -33,7 +34,7 @@ const useActorList = () => {
     };
 
     fetchActors();
-  }, []);
+  }, [currentPage]);
 
   return { actors, loading, error };
 };

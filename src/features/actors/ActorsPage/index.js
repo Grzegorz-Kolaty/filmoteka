@@ -7,9 +7,17 @@ import { Loader } from "../../../common/Loader";
 import { NotFound } from "../../movies/MoviesPage/styled";
 import useActorSearch from "../../Search/useActorSearch";
 import { useLocation } from "react-router-dom";
+import { Pagination } from "../../../components/Pagination";
+import { useState } from "react";
 
 export const ActorsPage = () => {
-  const popularActors = useActorList();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const popularActors = useActorList(currentPage);
   const searchedActors = useActorSearch();
   const API_IMG = "https://image.tmdb.org/t/p/w185";
   const location = useLocation();
@@ -55,6 +63,7 @@ export const ActorsPage = () => {
           ))}
         />
       )}
+      <Pagination page={currentPage} onPageChange={handlePageChange} />
     </Container>
   );
 };

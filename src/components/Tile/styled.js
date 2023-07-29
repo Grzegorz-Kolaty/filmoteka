@@ -83,9 +83,10 @@ export const Description = styled.div`
       gap: 16px;
     };
   `};
-
+  
   ${({ poster }) => poster && css`
-  `};
+    gap: 8px;
+  `}
 `;
 export const WrapperExtras = styled.div`
   gap: 8px;
