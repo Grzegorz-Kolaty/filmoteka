@@ -9,6 +9,7 @@ import usePopularMovies from "./MoviesPopular/usePopularMovies";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { NotFound } from "./styled";
+import {Error} from "../../../common/Error";
 
 export const MoviesPage = () => {
   const popularMovies = usePopularMovies();
@@ -32,7 +33,7 @@ export const MoviesPage = () => {
   if (error) {
     return (
       <Container>
-        <div>Error...</div>
+        <Section body={<Error/>}/>
       </Container>
     );
   }
