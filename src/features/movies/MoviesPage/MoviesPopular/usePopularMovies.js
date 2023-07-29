@@ -4,7 +4,7 @@ import axios from "axios";
 const API_KEY = "bcf20e98fe4a34fff9d2e944e0f0cd1d";
 const API_URL = "https://api.themoviedb.org/3/movie/popular";
 
-const usePopularMovies = () => {
+const usePopularMovies = (page) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -16,11 +16,11 @@ const usePopularMovies = () => {
           params: {
             api_key: API_KEY,
             language: "en-US",
-            page: 1,
+            page: page,
           },
         });
+        setLoading(true);
 
-        // Zasymuluj opóźnienie na 2 sekundy
         const timer = setTimeout(() => {
           setMovies(response.data.results);
           setLoading(false);
@@ -35,7 +35,7 @@ const usePopularMovies = () => {
     };
 
     fetchPopularMovies();
-  }, []);
+  }, [page]);
 
   return { movies, loading, error };
 };

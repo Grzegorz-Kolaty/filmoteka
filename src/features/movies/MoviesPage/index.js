@@ -9,9 +9,17 @@ import usePopularMovies from "./MoviesPopular/usePopularMovies";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { NotFound } from "./styled";
+import { Pagination } from "../../../components/Pagination";
+import { useState } from "react";
 
 export const MoviesPage = () => {
-  const popularMovies = usePopularMovies();
+  const [page, setPage] = useState(1);
+
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+  };
+
+  const popularMovies = usePopularMovies(page);
   const searchedMovies = useMovieSearch();
   const { genres } = useGenres();
   const location = useLocation();
@@ -65,6 +73,7 @@ export const MoviesPage = () => {
           ))}
         />
       )}
+      <Pagination page={page} onPageChange={handlePageChange} />
     </Container>
   );
 };
