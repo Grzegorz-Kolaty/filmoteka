@@ -98,6 +98,7 @@ export const Rate = styled.span`
         font-size: 18px;
         line-height: 32px;
        margin-bottom:-9px;
+       
       `}
   }
 `;
