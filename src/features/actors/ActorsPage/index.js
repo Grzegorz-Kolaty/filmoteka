@@ -9,6 +9,7 @@ import useActorSearch from "../../Search/useActorSearch";
 import { useLocation } from "react-router-dom";
 import { Pagination } from "../../../components/Pagination";
 import { useState } from "react";
+import { Error } from "../../../common/Error";
 
 export const ActorsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,7 +39,7 @@ export const ActorsPage = () => {
   if (error) {
     return (
       <Container>
-        <div>Error...</div>
+        <Section body={<Error />} />
       </Container>
     );
   }
@@ -63,7 +64,10 @@ export const ActorsPage = () => {
           ))}
         />
       )}
-      <Pagination page={currentPage} onPageChange={handlePageChange} />
+
+      {actors.length > 0 && (
+        <Pagination page={currentPage} onPageChange={handlePageChange} />
+      )}
     </Container>
   );
 };
