@@ -1,10 +1,10 @@
 import { Wrapper } from "./styled";
-import { Animation } from "./styled";
+import { Spinner } from "./styled";
 
 export const Loader = () => {
   return (
     <Wrapper>
-      <Animation />
+      <Spinner />
     </Wrapper>
   );
 };
