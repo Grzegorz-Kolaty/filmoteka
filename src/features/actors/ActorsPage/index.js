@@ -63,7 +63,10 @@ export const ActorsPage = () => {
           ))}
         />
       )}
-      <Pagination page={currentPage} onPageChange={handlePageChange} />
+
+      {actors.length > 0 && (
+        <Pagination page={currentPage} onPageChange={handlePageChange} />
+      )}
     </Container>
   );
 };

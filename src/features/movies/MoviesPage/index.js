@@ -45,34 +45,38 @@ export const MoviesPage = () => {
     );
   }
 
+  if (movies.length === 0) {
+    return (
+      <Container>
+        <Section title="Sorry, there are no results" body={<NotFound />} />
+      </Container>
+    );
+  }
+
   return (
     <Container>
-      {movies.length === 0 ? (
-        <Section title="Sorry, there are no results" body={<NotFound />} />
-      ) : (
-        <Section
-          movies
-          title="Popular Movies"
-          body={movies.map((movie) => (
-            <Tile
-              poster
-              key={movie.id}
-              img={
-                movie.poster_path
-                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                  : noProfilePic
-              }
-              title={movie.title}
-              date={movie.release_date}
-              genre={movie.genre_ids}
-              genres={genres}
-              rating={movie.vote_average}
-              votes={movie.vote_count}
-              overview={movie.overview}
-            />
-          ))}
-        />
-      )}
+      <Section
+        movies
+        title="Popular Movies"
+        body={movies.map((movie) => (
+          <Tile
+            poster
+            key={movie.id}
+            img={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : noProfilePic
+            }
+            title={movie.title}
+            date={movie.release_date}
+            genre={movie.genre_ids}
+            genres={genres}
+            rating={movie.vote_average}
+            votes={movie.vote_count}
+            overview={movie.overview}
+          />
+        ))}
+      />
       <Pagination page={page} onPageChange={handlePageChange} />
     </Container>
   );
