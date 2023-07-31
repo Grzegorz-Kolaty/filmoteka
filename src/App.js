@@ -11,10 +11,10 @@ export const App = () => {
     <HashRouter>
       <Navigation />
       <Switch>
-        <Route path="/actor">
+        <Route path="/person/:id">
           <ActorPage />
         </Route>
-        <Route path="/movie">
+        <Route path="/movie/:id">
           <MoviePage />
         </Route>
         <Route path={toActors()}>
