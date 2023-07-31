@@ -25,7 +25,9 @@ export const MoviesPage = () => {
   if (loading) {
     return (
       <Container>
-        <Section body={<Loader />} />
+        <Section 
+        title={"Search results for Mulan"}
+        body={<Loader />} />
       </Container>
     );
   }
@@ -33,7 +35,8 @@ export const MoviesPage = () => {
   if (error) {
     return (
       <Container>
-        <Section body={<Error/>}/>
+        <Section 
+        body={<Error/>}/>
       </Container>
     );
   }
