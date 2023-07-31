@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import notFound from "././../../../components/images/notFound.svg";
 
-export const NotFound = styled.img`
+export const NotFound = styled.div`
   background-image: url("${notFound}");
   background-repeat: no-repeat;
   background-position: center;
@@ -10,8 +10,12 @@ export const NotFound = styled.img`
   background-color: transparent;
   outline: none;
   border: none;
-  margin-top: 32px;
-  margin-left: 432px;
+  margin: 32px auto 0px auto;
+
+  @media (max-width: 450px) {
+    width: 100%;
+    height: 300px;
+  }
 `;
 
 export const Button = styled.button`

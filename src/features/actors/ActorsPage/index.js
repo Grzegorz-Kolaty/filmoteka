@@ -8,6 +8,7 @@ import { NotFound } from "../../movies/MoviesPage/styled";
 import useActorSearch from "../../Search/useActorSearch";
 import { Pagination } from "../../../components/Pagination";
 import { useState } from "react";
+import { Error } from "../../../common/Error";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 export const ActorsPage = () => {
@@ -38,7 +39,7 @@ export const ActorsPage = () => {
   if (error) {
     return (
       <Container>
-        <div>Error...</div>
+        <Section body={<Error />} />
       </Container>
     );
   }
@@ -62,7 +63,10 @@ export const ActorsPage = () => {
           ))}
         />
       )}
-      <Pagination page={currentPage} onPageChange={handlePageChange} />
+
+      {actors.length > 0 && (
+        <Pagination page={currentPage} onPageChange={handlePageChange} />
+      )}
     </Container>
   );
 };

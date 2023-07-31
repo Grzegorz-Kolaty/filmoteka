@@ -7,6 +7,7 @@ import { Loader } from "../../../common/Loader";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { NotFound } from "./styled";
+import { Error } from "../../../common/Error";
 import usePopularMovies from "./getPopularMovies";
 
 export const MoviesPage = () => {
@@ -25,7 +26,8 @@ export const MoviesPage = () => {
   if (loading) {
     return (
       <Container>
-        <Section body={<Loader />} />
+        <Section
+          body={<Loader />} />
       </Container>
     );
   }
@@ -33,7 +35,8 @@ export const MoviesPage = () => {
   if (error) {
     return (
       <Container>
-        <div>Error...</div>
+        <Section
+          body={<Error />} />
       </Container>
     );
   }
