@@ -7,6 +7,8 @@ export const HeaderWrapper = styled.div`
   margin: 0 auto;
   height: 770px;
   max-width: 1920px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 3);
+
 
   color: ${({ theme }) => theme.color.white};
   background-color: black;
@@ -25,7 +27,7 @@ export const HeaderWrapper = styled.div`
   }
 
   @media (max-width: 480px) {
-    padding: 40px 10px;
+    padding: 0;
     height: 300px;
     font-size: 12px;
     box-shadow: inset 0px 0px 20px 20px rgba(0, 0, 0, 0.3);
