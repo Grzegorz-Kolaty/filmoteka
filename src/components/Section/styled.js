@@ -5,7 +5,9 @@ export const Sections = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   gap: 24px;
-  padding: 56px 3%;
+  padding: 56px 20px;
+  margin: 0px auto;
+  max-width: 1408px;
 
   @media(max-width: 900px) {
     padding: 24px 16px;
@@ -26,7 +28,6 @@ export const Title = styled.h2`
 
 export const Body = styled.div`
   display: grid;
-  justify-content: space-around;
   grid-gap: 24px;
   background-color: transparent;
 

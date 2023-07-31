@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
+  text-decoration: none;
+  color: ${({ theme }) => theme.color.black};
   display: flex;
   flex-flow: column nowrap;
   align-items: stretch;
@@ -23,6 +25,13 @@ export const Wrapper = styled.div`
     };
   `};
 
+  ${({ bigposter }) => !bigposter && css`
+      &:hover {
+        transition: 150ms;
+        transform: scale(1.03);
+      };
+    `};
+
   ${({ poster }) => poster && css`
     gap: 16px;
     justify-content: flex-start;
@@ -44,9 +53,11 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.img`
+  aspect-ratio: 600 / 900;
   border-radius: 5px;
 
   ${({ bigposter }) => bigposter && css`
+  min-width: 114px;
   width: 30%;
   `}
 `;
@@ -69,25 +80,32 @@ export const Title = styled.div`
  `}
 `;
 
+
 export const Description = styled.div`
   display: flex;
-  flex-flow: column wrap;
+  flex-grow: 1;
+  flex-direction: column;
   gap: 16px;
 
   ${({ bigposter }) => bigposter && css`
-    width: 60%;
+    width: 50%;
     gap: 24px;
     font-size: 18px;
 
     @media(max-width: 900px) {
-      gap: 16px;
-    };
+      gap: 8px;
+    }
   `};
-  
+
   ${({ poster }) => poster && css`
     gap: 8px;
   `}
+
+  & > div:last-child {
+    height: 100%;
+  }
 `;
+
 export const WrapperExtras = styled.div`
   gap: 8px;
 `;
@@ -107,6 +125,10 @@ export const Info = styled.div`
 
 export const Extras = styled.span`
   color: ${({ theme }) => theme.color.stormGray};
+
+  @media(max-width: 900px) {
+    display: none;
+  };
 `;
 
 export const Overview = styled.div`

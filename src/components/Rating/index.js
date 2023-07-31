@@ -2,11 +2,11 @@ import { Rate, Star, Textbox, Wrapper, Votes } from "./styled";
 
 export const Rating = ({ rating, votes, header }) => {
   return (
-    <Wrapper header={header}>
-      {rating && rating !== 0 ? (
+    <Wrapper>
+      {rating !== 0 ? (
         <Textbox header={header}>
-          <Star header={header} />
-          <Rate header={header}>{rating.toFixed(1)} </Rate>
+          <Star />
+          <Rate header={header}>{rating} </Rate>
           <Votes header={header}>{votes} votes </Votes>
         </Textbox>
       ) : (
