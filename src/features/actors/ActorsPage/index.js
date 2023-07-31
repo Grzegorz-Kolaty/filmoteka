@@ -6,9 +6,9 @@ import { Tile } from "../../../components/Tile";
 import { Loader } from "../../../common/Loader";
 import { NotFound } from "../../movies/MoviesPage/styled";
 import useActorSearch from "../../Search/useActorSearch";
-import { useLocation } from "react-router-dom";
 import { Pagination } from "../../../components/Pagination";
 import { useState } from "react";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 export const ActorsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,13 +48,12 @@ export const ActorsPage = () => {
       {actors.length === 0 ? (
         <Section title="Sorry, there are no results" body={<NotFound />} />
       ) : (
-        <Section
-          actors
+        <Section actors
           title={location.search ? "Search Results" : "Popular Actors"}
           body={actors.map((actor) => (
-            <Tile
-              smallposter
+            <Tile smallposter
               key={actor.id}
+              id={actor.id}
               title={actor.name}
               img={
                 actor.profile_path ? API_IMG + actor.profile_path : noProfilePic

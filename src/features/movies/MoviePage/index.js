@@ -1,114 +1,84 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { Container } from "../../../components/Container";
 import { Header } from "../../../components/Header";
 import { Section } from "../../../components/Section";
 import { Rating } from "../../../components/Rating";
-import { NotFound } from "../MoviesPage/styled";
-import { HeaderWrapper } from "./styled";
-import { MovieDetails } from "../../movies/MoviesPage/MovieTile";
+import { HeaderWrapper, ItemsWrapper } from "./styled";
 import { Tile } from "../../../components/Tile";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
-import { Loader } from "../../../common/Loader";
-import { nanoid } from 'nanoid';
+import useMovieDetails from "./getMovie";
+import useMovieCredits from "./getMovieCredits";
+import { useGenres } from "../../../components/Genre/getGenres";
 
-const API_URL = "https://api.themoviedb.org/3";
-const API_KEY = "991805bb8d078db21dd78fe533903f2b";
-const API_IMG = "https://image.tmdb.org/t/p/w1280";
-const API_PIC = "https://image.tmdb.org/t/p/w185";
+const API_IMG = "https://image.tmdb.org/t/p/w500";
+const API_HEADER_IMG = "https://image.tmdb.org/t/p/w1280";
 
 export const MoviePage = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [headerImage, setHeaderImage] = useState("");
-  const [movie, setMovie] = useState({});
-  const [credits, setCredits] = useState([]);
-  const [crew, setCrew] = useState([]);
-  let id = nanoid();
-
-
-  useEffect(() => {
-    const fetchMovieData = async () => {
-      try {
-        const movieResponse = await axios.get(
-          `${API_URL}/movie/337401?api_key=${API_KEY}&language=en-US`
-        );
-        const imagePath = movieResponse.data.backdrop_path;
-        setHeaderImage(`${API_IMG}${imagePath}`);
-        setMovie(movieResponse.data);
-
-        const creditsResponse = await axios.get(
-          `${API_URL}/movie/337401/credits?api_key=${API_KEY}&language=en-US`
-        );
-        const castData = creditsResponse.data.cast;
-        const crewData = creditsResponse.data.crew;
-        setCredits(castData);
-        setCrew(crewData);
-
-        setIsLoading(false);
-      } catch (error) {
-        setIsError(true);
-        setIsLoading(false);
-      }
-    };
-
-    fetchMovieData();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <Loader />
-    );
-  }
-
-  if (isError) {
-    return (
-      <Container>
-        <Section title="Sorry, there are no results..." body={<NotFound />} />
-      </Container>
-    );
-  }
+  const movieId = useLocation();
+  const { movie, genreIds, productionCountries } = useMovieDetails(movieId.pathname.toString());
+  const { cast, crew } = useMovieCredits(movieId.pathname.toString());
+  const { genres } = useGenres();
 
   return (
     <Container>
-      <HeaderWrapper style={{ backgroundImage: `url(${headerImage})` }}>
-        <Header title={movie.title} />
-        <Rating header rating={movie.vote_average} votes={movie.vote_count} />
+      <HeaderWrapper
+        img={movie.backdrop_path
+          ? API_HEADER_IMG + movie.backdrop_path
+          : noProfilePic}>
+        <ItemsWrapper>
+          <Header title={movie.title} />
+          <Rating header rating={movie.vote_average} votes={movie.vote_count} />
+        </ItemsWrapper>
       </HeaderWrapper>
 
-      <Section body={<MovieDetails />} />
-
-      <Section actors
-        title={`Cast (${credits.length})`}
-        body={credits.map((credit) => (
-          <Tile
-            smallposter
-            key={id}
-            img={
-              credit.profile_path
-                ? `${API_PIC}${credit.profile_path}`
-                : noProfilePic
-            }
-            title={credit.name}
-            from={credit.character}
-          />
-        ))}
+      <Section
+        body={
+          <Tile bigposter
+            type="movie"
+            img={movie.poster_path
+              ? `${API_IMG}${movie.poster_path}`
+              : noProfilePic}
+            title={movie.title}
+            date={movie.release_date}
+            votes={movie.vote_count}
+            overview={movie.overview}
+            rating={movie.vote_average}
+            genre={genreIds}
+            genres={genres}
+            from={productionCountries}
+          />}
       />
 
       <Section actors
-        title={`Crew (${crew.length})`}
-        body={crew.map((member) => (
+        title={cast.length > 0 ? `Cast (${cast.length})` : "No cast available 😥"}
+        body={cast.length > 0 ? cast.map((cast) => (
           <Tile smallposter
-            key={id}
+            id={cast.id}
+            key={cast.id}
+            img={
+              cast.profile_path
+                ? `${API_IMG}${cast.profile_path}`
+                : noProfilePic}
+            title={cast.name}
+            from={cast.character}
+          />
+        )) : null}
+      />
+
+      <Section actors
+        title={crew.length > 0 ? `Crew (${crew.length})` : "No crew available 😥"}
+        body={crew.length > 0 ? crew.map((member) => (
+          <Tile smallposter
+            id={member.id}
+            key={member.id}
             img={
               member.profile_path
-                ? `${API_PIC}${member.profile_path}`
-                : noProfilePic
-            }
+                ? `${API_IMG}${member.profile_path}`
+                : noProfilePic}
             title={member.name}
             from={member.job}
           />
-        ))}
+        )) : null}
       />
     </Container>
   );

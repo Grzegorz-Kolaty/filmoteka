@@ -20,7 +20,6 @@ const usePopularMovies = () => {
           },
         });
 
-        // Zasymuluj opóźnienie na 2 sekundy
         const timer = setTimeout(() => {
           setMovies(response.data.results);
           setLoading(false);
