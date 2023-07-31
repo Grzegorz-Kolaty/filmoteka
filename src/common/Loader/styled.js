@@ -19,9 +19,7 @@ export const Spinner = styled.div`
     to {transform: rotate(360deg)}
     }
 
-  
-
-    @media (max-width:450px){
+    @media (max-width: 900px){
       margin: 24px auto 16px;
       width: 35px;
       height: 35px;

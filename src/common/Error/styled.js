@@ -20,15 +20,15 @@ export const Icon = styled(ErrorIcon)`
   width: 120px;
   height: 120px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 900px) {
     width: 90px;
     height: 90px;
     margin-bottom: 20px;
   }
+  
   @media (max-width: 450px) {
     width: 60px;
     height: 60px;
-    margin-bottom: 20px;
   }
 `;
 

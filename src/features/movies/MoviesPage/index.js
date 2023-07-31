@@ -1,15 +1,14 @@
-import React from "react";
 import { Section } from "../../../components/Section";
 import { Container } from "../../../components/Container";
 import { Tile } from "../../../components/Tile";
 import { useGenres } from "../../../components/Genre/getGenres";
 import useMovieSearch from "../../Search/useMovieSearch";
 import { Loader } from "../../../common/Loader";
-import usePopularMovies from "./MoviesPopular/usePopularMovies";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { NotFound } from "./styled";
-import {Error} from "../../../common/Error";
+import { Error } from "../../../common/Error";
+import usePopularMovies from "./getPopularMovies";
 
 export const MoviesPage = () => {
   const popularMovies = usePopularMovies();
@@ -22,12 +21,13 @@ export const MoviesPage = () => {
   const loading = moviesToDisplay?.loading || false;
   const error = moviesToDisplay?.error || false;
 
+  console.log(movies);
+
   if (loading) {
     return (
       <Container>
-        <Section 
-        title={"Search results for Mulan"}
-        body={<Loader />} />
+        <Section
+          body={<Loader />} />
       </Container>
     );
   }
@@ -35,8 +35,8 @@ export const MoviesPage = () => {
   if (error) {
     return (
       <Container>
-        <Section 
-        body={<Error/>}/>
+        <Section
+          body={<Error />} />
       </Container>
     );
   }
@@ -46,12 +46,12 @@ export const MoviesPage = () => {
       {movies.length === 0 ? (
         <Section title="Sorry, there are no results" body={<NotFound />} />
       ) : (
-        <Section
-          movies
+        <Section movies
           title="Popular Movies"
           body={movies.map((movie) => (
-            <Tile
-              poster
+            <Tile poster
+              type="movie"
+              id={movie.id}
               key={movie.id}
               img={
                 movie.poster_path

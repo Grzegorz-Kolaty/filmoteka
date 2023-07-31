@@ -20,7 +20,6 @@ const Search = () => {
     });
   };
 
-  // Sprawdź, czy jesteś na stronie aktorów i ustaw odpowiednią nazwę wyszukiwania
   const placeholderText = location.pathname.includes("/actors")
     ? "Search for actors..."
     : "Search for movies...";
