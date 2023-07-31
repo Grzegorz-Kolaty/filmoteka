@@ -63,7 +63,6 @@ export const ActorsPage = () => {
           ))}
         />
       )}
-
       {actors.length > 0 && (
         <Pagination page={currentPage} onPageChange={handlePageChange} />
       )}
