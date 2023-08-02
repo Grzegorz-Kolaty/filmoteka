@@ -5,27 +5,41 @@ import { Tile } from "../../../components/Tile";
 import { useGenres } from "../../../components/Genre/getGenres";
 import useMovieSearch from "../../Search/useMovieSearch";
 import { Loader } from "../../../common/Loader";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { NotFound } from "./styled";
 import { Error } from "../../../common/Error";
 import usePopularMovies from "./getPopularMovies";
 import { Pagination } from "../../../components/Pagination";
+import { useQueryParameter } from "../../queryParameters";
 
 export const MoviesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState(false);
+  const history = useHistory();
+  const location = useLocation();
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
+    history.push(`${location.pathname}?page=${newPage}`);
   };
+
+  useEffect(() => {
+    handlePageChange(1);
+  }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const page = parseInt(params.get("page") || "1", 10);
+    setCurrentPage(page);
+  }, [location.search]);
 
   const popularMovies = usePopularMovies(currentPage);
   const searchedMovies = useMovieSearch();
   const { genres } = useGenres();
-  const location = useLocation();
 
-  const moviesToDisplay = location.search ? searchedMovies : popularMovies;
+  const query = useQueryParameter("search");
+  const moviesToDisplay = query ? searchedMovies : popularMovies;
   const movies = moviesToDisplay?.movies || [];
   const loading = moviesToDisplay?.loading || false;
 
@@ -54,7 +68,11 @@ export const MoviesPage = () => {
   if (error && !navigator.onLine) {
     return (
       <Container>
-        <Section body={<Error message="No internet connection. Please check your internet connection and try again." />} />
+        <Section
+          body={
+            <Error message="No internet connection. Please check your internet connection and try again." />
+          }
+        />
       </Container>
     );
   }
@@ -79,7 +97,9 @@ export const MoviesPage = () => {
                   : noProfilePic
               }
               title={movie.title}
-              date={movie.release_date ? movie.release_date.substring(0, 4) : ''}
+              date={
+                movie.release_date ? movie.release_date.substring(0, 4) : ""
+              }
               genre={movie.genre_ids}
               genres={genres}
               rating={movie.vote_average}
