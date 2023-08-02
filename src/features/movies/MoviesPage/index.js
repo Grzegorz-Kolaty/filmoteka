@@ -1,19 +1,20 @@
+import React, { useState, useEffect } from "react";
 import { Section } from "../../../components/Section";
 import { Container } from "../../../components/Container";
 import { Tile } from "../../../components/Tile";
 import { useGenres } from "../../../components/Genre/getGenres";
 import useMovieSearch from "../../Search/useMovieSearch";
 import { Loader } from "../../../common/Loader";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation } from "react-router-dom";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { NotFound } from "./styled";
 import { Error } from "../../../common/Error";
 import usePopularMovies from "./getPopularMovies";
 import { Pagination } from "../../../components/Pagination";
-import { useState } from "react";
 
 export const MoviesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [error, setError] = useState(false);
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
@@ -27,24 +28,33 @@ export const MoviesPage = () => {
   const moviesToDisplay = location.search ? searchedMovies : popularMovies;
   const movies = moviesToDisplay?.movies || [];
   const loading = moviesToDisplay?.loading || false;
-  const error = moviesToDisplay?.error || false;
 
-  console.log(movies);
+  useEffect(() => {
+    const handleOnlineStatusChange = () => {
+      setError(!navigator.onLine);
+    };
+
+    window.addEventListener("offline", handleOnlineStatusChange);
+    window.addEventListener("online", handleOnlineStatusChange);
+
+    return () => {
+      window.removeEventListener("offline", handleOnlineStatusChange);
+      window.removeEventListener("online", handleOnlineStatusChange);
+    };
+  }, []);
 
   if (loading) {
     return (
       <Container>
-        <Section
-          body={<Loader />} />
+        <Section body={<Loader />} />
       </Container>
     );
   }
 
-  if (error) {
+  if (error && !navigator.onLine) {
     return (
       <Container>
-        <Section
-          body={<Error />} />
+        <Section body={<Error message="No internet connection. Please check your internet connection and try again." />} />
       </Container>
     );
   }
@@ -54,10 +64,12 @@ export const MoviesPage = () => {
       {movies.length === 0 ? (
         <Section title="Sorry, there are no results" body={<NotFound />} />
       ) : (
-        <Section movies
+        <Section
+          movies
           title="Popular Movies"
           body={movies.map((movie) => (
-            <Tile poster
+            <Tile
+              poster
               type="movie"
               id={movie.id}
               key={movie.id}
@@ -67,7 +79,7 @@ export const MoviesPage = () => {
                   : noProfilePic
               }
               title={movie.title}
-              date={movie.release_date}
+              date={movie.release_date ? movie.release_date.substring(0, 4) : ''}
               genre={movie.genre_ids}
               genres={genres}
               rating={movie.vote_average}
@@ -77,9 +89,9 @@ export const MoviesPage = () => {
           ))}
         />
       )}
-        {movies.length > 0 && (
-          <Pagination page={currentPage} onPageChange={handlePageChange} />
-        )}
+      {movies.length > 0 && (
+        <Pagination page={currentPage} onPageChange={handlePageChange} />
+      )}
     </Container>
   );
 };

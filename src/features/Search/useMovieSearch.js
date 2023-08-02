@@ -29,7 +29,6 @@ const useMovieSearch = () => {
         setMovies(response.data.results);
         setLoading(false);
       } catch (error) {
-        console.error(error);
         setLoading(false);
         setError(true);
       }

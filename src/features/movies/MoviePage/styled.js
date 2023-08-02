@@ -35,5 +35,5 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const ItemsWrapper = styled.div`
-  padding: 5%;
+  padding: 3%;
 `;
