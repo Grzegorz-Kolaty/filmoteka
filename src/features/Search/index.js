@@ -4,14 +4,12 @@ import {
   useQueryParameter,
   useReplaceQueryParameter,
 } from "../queryParameters";
-import { useLocation } from "react-router-dom";
 
 const searchQueryParamName = "search";
 
 const Search = () => {
   const query = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter();
-  const location = useLocation();
 
   const onInputChange = ({ target }) => {
     replaceQueryParameter({
@@ -20,9 +18,7 @@ const Search = () => {
     });
   };
 
-  const placeholderText = location.pathname.includes("/actors")
-    ? "Search for actors..."
-    : "Search for movies...";
+  const placeholderText = "Search for movies...";
 
   return (
     <SearchWrapper>

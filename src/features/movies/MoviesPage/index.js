@@ -1,30 +1,44 @@
+import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import { Section } from "../../../components/Section";
 import { Container } from "../../../components/Container";
 import { Tile } from "../../../components/Tile";
 import { useGenres } from "../../../components/Genre/getGenres";
-import useMovieSearch from "../../Search/useMovieSearch";
 import { Loader } from "../../../common/Loader";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import noProfilePic from "../../../components/images/noProfilePic.svg";
 import { NotFound } from "./styled";
 import { Error } from "../../../common/Error";
 import usePopularMovies from "./getPopularMovies";
 import { Pagination } from "../../../components/Pagination";
-import { useState } from "react";
+import { useQueryParameter } from "../../queryParameters";
+import useMovieSearch from "../../Search/useMovieSearch";
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const history = useHistory();
+  const location = useLocation();
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
+    history.push(`${location.pathname}?page=${newPage}`);
   };
+
+  useEffect(() => {
+    handlePageChange(1);
+  }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const page = parseInt(params.get("page") || "1", 10);
+    setCurrentPage(page);
+  }, [location.search]);
 
   const popularMovies = usePopularMovies(currentPage);
   const searchedMovies = useMovieSearch();
   const { genres } = useGenres();
-  const location = useLocation();
 
-  const moviesToDisplay = location.search ? searchedMovies : popularMovies;
+  const query = useQueryParameter("search"); // Odczytaj wartość parametru "search"
+  const moviesToDisplay = query ? searchedMovies : popularMovies; // Wybierz odpowiednie filmy na podstawie wartości "search"
   const movies = moviesToDisplay?.movies || [];
   const loading = moviesToDisplay?.loading || false;
   const error = moviesToDisplay?.error || false;
@@ -34,8 +48,7 @@ export const MoviesPage = () => {
   if (loading) {
     return (
       <Container>
-        <Section
-          body={<Loader />} />
+        <Section body={<Loader />} />
       </Container>
     );
   }
@@ -43,8 +56,7 @@ export const MoviesPage = () => {
   if (error) {
     return (
       <Container>
-        <Section
-          body={<Error />} />
+        <Section body={<Error />} />
       </Container>
     );
   }
@@ -54,10 +66,12 @@ export const MoviesPage = () => {
       {movies.length === 0 ? (
         <Section title="Sorry, there are no results" body={<NotFound />} />
       ) : (
-        <Section movies
+        <Section
+          movies
           title="Popular Movies"
           body={movies.map((movie) => (
-            <Tile poster
+            <Tile
+              poster
               type="movie"
               id={movie.id}
               key={movie.id}
@@ -77,9 +91,11 @@ export const MoviesPage = () => {
           ))}
         />
       )}
-        {movies.length > 0 && (
-          <Pagination page={currentPage} onPageChange={handlePageChange} />
-        )}
+      {movies.length > 0 && (
+        <Pagination page={currentPage} onPageChange={handlePageChange} />
+      )}
     </Container>
   );
 };
+
+export default MoviesPage;

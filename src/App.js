@@ -1,9 +1,14 @@
 import Navigation from "./common/Navigation/index";
 import { ActorsPage } from "./features/actors/ActorsPage/index";
 import { MoviePage } from "./features/movies/MoviePage/index";
-import { MoviesPage } from "./features/movies/MoviesPage/index";
+import MoviesPage from "./features/movies/MoviesPage/index";
 import { ActorPage } from "./features/actors/ActorPage/index";
-import { HashRouter, Redirect, Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  HashRouter,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom/cjs/react-router-dom.min";
 import { toActors, toMovies } from "./routes";
 
 export const App = () => {
