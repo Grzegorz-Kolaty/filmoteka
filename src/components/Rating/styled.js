@@ -26,6 +26,7 @@ export const Textbox = styled.div`
   gap: 12px;
   font-size: 16px;
   line-height: 1.5;
+  margin-top: auto;
   color: ${({ theme }) => theme.color.darkGrey};
 
   ${({ header }) => header && css`

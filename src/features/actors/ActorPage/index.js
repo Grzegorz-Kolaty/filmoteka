@@ -19,12 +19,10 @@ export const ActorPage = () => {
     <Container>
       <Section
         body={
-          <Tile bigposter
+          <Tile
+            bigposter
             key={profile.id}
-            img={
-              profile.profile_path
-                ? API_IMG + profile.profile_path
-                : noProfilePic}
+            img={profile.profile_path ? API_IMG + profile.profile_path : noProfilePic}
             overview={profile.biography}
             title={profile.name}
             date={profile.birthday}
@@ -33,49 +31,49 @@ export const ActorPage = () => {
         }
       />
 
-      <Section movies
+      <Section
+        movies
         title={cast.length > 0 ? `Movies - cast (${cast.length})` : "No cast available 😥"}
         body={cast.length > 0 ? cast.map((cast) => (
-          <Tile poster
+          <Tile
+            poster
             type="movie"
             id={cast.id}
             key={cast.id}
-            img={
-              cast.poster_path
-                ? API_IMG + cast.poster_path
-                : noProfilePic
-            }
+            img={cast.poster_path ? API_IMG + cast.poster_path : noProfilePic}
             subtitle={cast.character}
             title={cast.title}
             date={cast.release_date}
-            genre={cast.genre_ids} genres={genres}
+            genre={cast.genre_ids}
+            genres={genres}
             rating={cast.vote_average}
             votes={cast.vote_count}
           />
         )) : null}
       />
 
-      <Section movies
-        title={crew.length > 0 ? `Movies - crew (${crew.length})` : "No crew available 😥"}
-        body={crew.length > 0 ? crew.map((crew) => (
-          <Tile poster
-            type="movie"
-            id={crew.id}
-            key={crew.id}
-            img={
-              crew.poster_path
-                ? API_IMG + crew.poster_path
-                : noProfilePic
-            }
-            subtitle={crew.character}
-            title={crew.title}
-            date={crew.job}
-            genre={crew.genre_ids} genres={genres}
-            rating={crew.vote_average}
-            votes={crew.vote_count}
-          />
-        )) : null}
-      />
+      {crew.length > 0 && (  // Add this condition to check if crew.length > 0
+        <Section
+          movies
+          title={`Movies - crew (${crew.length})`}
+          body={crew.map((crew) => (
+            <Tile
+              poster
+              type="movie"
+              id={crew.id}
+              key={crew.id}
+              img={crew.poster_path ? API_IMG + crew.poster_path : noProfilePic}
+              subtitle={crew.character}
+              title={crew.title}
+              date={crew.job}
+              genre={crew.genre_ids}
+              genres={genres}
+              rating={crew.vote_average}
+              votes={crew.vote_count}
+            />
+          ))}
+        />
+      )}
 
     </Container>
   );

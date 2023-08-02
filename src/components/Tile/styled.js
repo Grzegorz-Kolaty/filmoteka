@@ -55,6 +55,7 @@ export const Wrapper = styled.div`
 export const Image = styled.img`
   aspect-ratio: 600 / 900;
   border-radius: 5px;
+  max-height: 564px;
 
   ${({ bigposter }) => bigposter && css`
   min-width: 114px;

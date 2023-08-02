@@ -21,7 +21,7 @@ const Search = () => {
   };
 
   const placeholderText = location.pathname.includes("/actors")
-    ? "Search for actors..."
+    ? "Search for people..."
     : "Search for movies...";
 
   return (

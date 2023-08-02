@@ -28,7 +28,7 @@ const usePopularMovies = (currentPage) => {
 
         return () => clearTimeout(timer);
       } catch (error) {
-        console.error(error);
+       
         setLoading(false);
         setError(true);
       }
