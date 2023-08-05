@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import camera from "./camera.svg"
 
 export const Nav = styled.nav`
@@ -36,6 +36,10 @@ export const Logo = styled.div`
     gap: 8px;
   };
  `;
+ export const LogoLink = styled(Link)`
+ text-decoration: none;
+`;
+
 
 export const Icon = styled.div`
   width: 40px;
