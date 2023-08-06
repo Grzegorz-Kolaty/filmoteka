@@ -28,8 +28,11 @@ export const MoviePage = () => {
         img={
           movie.backdrop_path
             ? API_HEADER_IMG + movie.backdrop_path
-            : noProfilePic
+            : ""
         }
+        style={{
+          backgroundColor: movie.backdrop_path ? "" : "black",
+        }}
       >
         <ItemsWrapper>
           <Header title={movie.title} />
